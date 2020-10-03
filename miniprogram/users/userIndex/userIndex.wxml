@@ -1,0 +1,39 @@
+<view class="action">
+<view class="item" bindtap="requestAsset">
+<view><text>资产领取申请</text></view>
+<view class="logo"><i class="fa fa-television fa-3x" style="color:#3175FF;"></i></view>
+</view>
+<view class="item" bindtap="requestBudget">
+<view><text>资产预算申请</text></view>
+<view class="logo"><i class="fa fa-tasks fa-3x" style="color:#00B79E;"></i></view>
+</view>
+<view class="item" bindtap="fixReport">
+<view><text>资产维修汇报</text></view>
+<view class="logo"><i class="fa fa-wrench fa-3x" style="color:#D41650;"></i></view>
+</view>
+<view class="item" bindtap="userCenter">
+<view><text>个人中心</text></view>
+<view class="logo"><i class="fa fa-user fa-3x" style="color:#FF9604;"></i></view>
+</view>
+</view>
+
+<view style="color:#FF7211;margin-left:10rpx;">
+  <i class="fa fa-bookmark-o fa"></i>
+  <text style="font-size:32rpx;"> 使用须知</text>
+</view>
+
+<view class="info">
+    <view class="comment">
+      <view class="title"><text>如何申请各类资产</text></view>
+      <view class="content"><text>用户登录后，进入资产领取申请，选择自己需要的资产，填写必要数据并提交。</text></view>    
+    </view>
+
+    <view class="comment">
+      <view class="title"><text>如何跟进自己的申请</text></view>
+      <view class="content"><text>在我的申请进度内查看，申请是否完成，或者需要审批。</text></view>    
+    </view>
+
+</view>
+<button data-name="shareBtn" open-type="share">审批：转发给部门领导张三</button> 
+
+

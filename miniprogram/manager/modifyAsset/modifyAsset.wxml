@@ -1,0 +1,20 @@
+<van-cell-group>
+  <van-field required clearable value="{{ name }}" placeholder="输入物品名称" label="物品名称" bind:change="inputName"/>
+  <van-field required clearable type="digit" value="{{ memo }}" placeholder="输入备注信息" label="备注" bind:change="inputMemo" />
+</van-cell-group>
+
+<view wx:if="{{!imagePath==''}}">
+<view class="image">
+<image bindtap="imgYu" mode="widthFix" data-src="{{imagePath}}" src="{{imagePath}}"></image>
+</view>
+</view>
+
+
+<view class="buttongroup">
+<view class="button2">
+<button type="warn" size="{{default}}" > 移除此物品 </button>
+</view>
+<view class="button2">
+<button type="primary" size="{{default}}" > 修改物品信息 </button>
+</view>
+</view>

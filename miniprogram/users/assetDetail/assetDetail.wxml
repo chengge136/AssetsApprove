@@ -1,0 +1,33 @@
+<view wx:if="{{!imagePath==''}}">
+<view class="image">
+<image bindtap="imgYu" mode="widthFix" data-src="{{imagePath}}" src="{{imagePath}}"></image>
+</view>
+</view>
+
+
+
+<van-cell-group>
+  <van-field value="{{ name }}" disabled label="物品名称" />
+  <van-field value="{{ memo }}" disabled label="备注" />
+</van-cell-group>
+
+
+<van-goods-action>
+  <van-goods-action-icon
+    icon="chat-o"
+    text="管理员"
+    bind:click="cusServer"
+  />
+  <van-goods-action-icon
+    icon="cart-o"
+    text="申请单"
+    bind:click="requestCart"
+  />
+  <van-goods-action-button
+    text="加入申请单"
+    type="warning"
+    bind:click="addToCart"
+  />
+</van-goods-action>
+
+ <van-notify id="van-notify" />

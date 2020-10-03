@@ -1,0 +1,46 @@
+<view class="action">
+<view class="item" bindtap="assetApprove">
+<view><text>物资审批</text></view>
+<view class="logo"><i class="fa fa-gavel fa-3x" style="color:#9DD3FA;"></i></view>
+</view>
+<view class="item" bindtap="assetManage">
+<view><text>物资管理</text></view>
+<view class="logo"><i class="fa fa-cubes fa-3x" style="color:#80A894;"></i></view>
+</view>
+<view class="item" bindtap="employeeManage">
+<view><text>人员管理</text></view>
+<view class="logo"><i class="fa fa-group fa-3x" style="color:#FCD692;"></i></view>
+</view>
+<view class="item" bindtap="accessHub">
+<view><text>权限分配</text></view>
+<view class="logo"><i class="fa fa-check-square-o fa-3x" style="color:#AFB0CB;"></i></view>
+</view>
+<view class="item" bindtap="tableQuery">
+<view><text>报表查看</text></view>
+<view class="logo"><i class="fa fa-table fa-3x" style="color:#7DD1CA;"></i></view>
+</view>
+<view class="item" bindtap="dataAnalyze">
+<view><text>数据分析</text></view>
+<view class="logo"><i class="fa fa-line-chart fa-3x" style="color:#F9957D;"></i></view>
+</view>
+</view>
+
+<view style="color:#FF7211;margin-left:10rpx;">
+  <i class="fa fa-bookmark-o fa"></i>
+  <text style="font-size:32rpx;"> 使用须知</text>
+</view>
+
+<view class="info">
+    <view class="comment">
+      <view class="title"><text>管理员使用须知</text></view>
+      <view class="content"><text>用户登录后，进入资产领取申请，选择自己需要的资产，填写必要数据并提交。</text></view>    
+    </view>
+
+    <view class="comment">
+      <view class="title"><text>如何导出各类报表</text></view>
+      <view class="content"><text>在我的申请进度内查看，申请是否完成，或者需要审批。</text></view>    
+    </view>
+
+</view>
+
+

@@ -1,0 +1,11 @@
+<view class="container" style='width:100%;min-height:100%;background-image:url("https://7978-yxk-kappa-hlb24-1301822062.tcb.qcloud.la/static/images/start.jpg");background-size:100% 100%;'>
+
+  <view class="icon">
+    <text>物资申领与报修工具</text>
+  </view>
+  <view class="desc"><text>正好集团莲都分部</text></view>
+
+  <view class="button">
+    <button type='default' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">开始        <i class="fa fa-arrow-circle-right fa"></i></button>
+  </view>
+</view>

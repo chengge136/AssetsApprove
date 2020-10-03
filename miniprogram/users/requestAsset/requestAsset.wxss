@@ -1,0 +1,58 @@
+
+page{
+  padding: 10rpx;
+}
+
+
+
+ /* 首页导航 */
+.nav{
+  white-space: nowrap;
+  padding:5rpx 0;
+  margin-bottom:20rpx;
+
+}
+.nav_item{
+  /* 一行显示 */
+  display: inline-block;
+  padding: 20rpx 45rpx;
+  font-size: 35rpx;
+}
+.nav_item.active{
+  border-bottom: 5rpx solid #FF88AB;
+  background-color: #FEF4E9;
+}
+
+ .discount{
+   margin-top:20rpx; 
+   margin-bottom:20rpx; 
+ }
+
+.dis_bottom{
+   display:flex; 
+   flex-wrap:wrap; /* 换行 */
+   padding: 5rpx; /* 边距 */
+   height: 280rpx;
+   justify-content: space-between; /* 在成员元素之间留空白 */
+   border: 2px solid #D8D8D8;
+  
+}
+.dis_bottom image{
+  width: 30%;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+}
+
+.text1{
+  flex-direction:column;
+}
+
+.text2{
+  flex-direction:column;
+  position: relative;
+  right: 15rpx;
+}
+
+.item text{
+  font-size: 30rpx;
+}

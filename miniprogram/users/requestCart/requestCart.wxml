@@ -1,0 +1,33 @@
+<view class="J-shopping-cart-empty" hidden="{{!isempty}}">
+  <i class="fa fa-shopping-cart fa-5x"></i>
+  <text style='color:black'>还未申请</text>
+  <navigator open-type="navigateBack" url="../userIndex/userIndex">
+    <a class="button-primary">
+      去申请
+    </a>
+  </navigator>
+</view>
+
+<view hidden="{{isempty}}">
+  <view class="item" wx:for="{{carts}}" wx:key="index">
+    <van-card num="{{item.quantity}}" tag="办公用品" price="{{item.price}}" desc="测试数据" title="{{item.name}}" thumb="{{item.imagePath}}">
+      <view slot="footer">
+        <van-button size="mini" data-id="{{item.id}}" bind:click="add">加一个</van-button>
+        <van-button size="mini" data-id="{{item.id}}" bind:click="remove">删除</van-button>
+      </view>
+    </van-card>
+  </view>
+<view>
+<van-cell-group>
+  <van-field required clearable value="{{ name }}" placeholder="申请人" label="申请人" bind:change="inputName" />
+  <van-field required clearable value="{{ memo }}" placeholder="领用人" label="领用人" bind:change="inputMemo" />
+  <van-field required clearable value="{{ memo }}" placeholder="备注" label="备注" bind:change="inputMemo" />
+
+</van-cell-group>
+</view>
+
+
+  <view>
+    <van-submit-bar disabled="{{disabled}}" button-text="提交申请" bind:submit="Submit" />
+  </view>
+</view>

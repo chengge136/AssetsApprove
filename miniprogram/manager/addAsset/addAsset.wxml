@@ -1,0 +1,37 @@
+<view class="assetType">
+<view><text>选择物品的类型：</text></view>
+<view>
+<van-radio-group value="{{ type }}" bind:change="selectType" class="radiogroup">
+  <van-radio name="1">日常办公用品</van-radio>
+  <van-radio name="2">低值易耗品</van-radio>
+  <van-radio name="3">固定资产</van-radio>
+</van-radio-group>
+</view>
+</view>
+
+<van-cell-group>
+  <van-field required clearable value="{{ name }}" placeholder="输入物品名称" label="物品名称" bind:change="inputName" />
+  <van-field required clearable value="{{ memo }}" placeholder="备注" label="备注" bind:change="inputMemo" />
+
+  <view class="icon2" bindtap="choose_image">
+    <i class="fa fa-image fa-2x" style="color:#C2C2C2;"></i>
+    <text>点击上传物品照片</text>
+  </view>
+
+</van-cell-group>
+
+<view wx:if="{{!imagePath==''}}">
+  <view class="image">
+    <text>上传的图片</text>
+    <image bindtap="imgYu" mode="aspectFit" data-src="{{imagePath}}" src="{{imagePath}}"></image>
+  </view>
+  <view class="q-image-remover" bindtap="removeImage">
+    <i class="fa fa-remove" style="color:red;"></i>
+    <text>删除图片</text>
+  </view>
+</view>
+
+
+<view class="button">
+  <van-button type="info" block bind:click="add" disabled='{{disabled}}'>添加到物资仓库</van-button>
+</view>

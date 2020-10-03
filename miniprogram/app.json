@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/authorized/authorized",
+    "pages/login/login",
+    "users/userIndex/userIndex",
+    "users/requestAsset/requestAsset",
+    "users/assetSearch/assetSearch",
+    "users/assetDetail/assetDetail",
+    "users/requestCart/requestCart",
+    "manager/index/index",
+    "manager/objectManage/objectManage",
+    "manager/addAsset/addAsset",
+    "manager/modifyAsset/modifyAsset"
+
+    
+
+
+    
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "物资领用与报修工具",
+    "navigationBarTextStyle": "black"
+  },
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
+}
+
