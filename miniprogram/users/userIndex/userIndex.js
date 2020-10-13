@@ -49,10 +49,8 @@ Page({
     })
   },
   userCenter: function () {
-    wx.showToast({
-      title: '用户中心开发中',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '../userCenter/userCenter',
     })
   },
 

@@ -1,0 +1,71 @@
+<van-tabs active="0">
+  <van-tab title="办公用品" name="0">
+  <view class="title"><text>勾选 [办公用品] 需要审批的角色</text>
+</view>
+  <view class="weui-cells-after-title">
+    <checkbox-group bindchange="checkboxChange1" >
+       <label wx:for="{{roles1}}" wx:key="index">
+          <view class="weui-cell">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+          </view>
+          </label>
+    </checkbox-group>      
+  </view>
+  <view class="button">
+    <van-button type="info" block bind:click="save1" disabled='{{disabled}}'>保存设置</van-button>
+  </view>
+  </van-tab>
+
+  <van-tab title="低值易耗品" name="1">
+<view class="title"><text>勾选 [低值易耗品] 需要审批的角色</text>
+</view>
+  <view class="weui-cells-after-title">
+    <checkbox-group bindchange="checkboxChange2" >
+       <label wx:for="{{roles2}}" wx:key="index">
+          <view class="weui-cell">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+          </view>
+          </label>
+    </checkbox-group>      
+  </view>
+  <view class="button">
+    <van-button type="info" block bind:click="save2" disabled='{{disabled}}'>保存设置</van-button>
+  </view>
+  </van-tab>
+
+  <van-tab title="固定资产" name="2">
+<view class="title"><text>勾选 [固定资产] 需要审批的角色</text>
+</view>
+  <view class="weui-cells-after-title">
+    <checkbox-group bindchange="checkboxChange3" >
+       <label wx:for="{{roles3}}" wx:key="index">
+          <view class="weui-cell">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+          </view>
+          </label>
+    </checkbox-group>      
+  </view>
+  <view class="button">
+    <van-button type="info" block bind:click="save3" disabled='{{disabled}}'>保存设置</van-button>
+  </view>
+  </van-tab>
+
+    <van-tab title="资产预算" name="3">
+<view class="title"><text>勾选 [资产预算] 需要审批的角色</text>
+</view>
+  <view class="weui-cells-after-title">
+    <checkbox-group bindchange="checkboxChange4" >
+       <label wx:for="{{roles4}}" wx:key="index">
+          <view class="weui-cell">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+          </view>
+          </label>
+    </checkbox-group>      
+  </view>
+  <view class="button">
+    <van-button type="info" block bind:click="save4" disabled='{{disabled}}'>保存设置</van-button>
+  </view>
+  </van-tab>
+  
+</van-tabs>
+

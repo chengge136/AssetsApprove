@@ -1,6 +1,6 @@
 <van-tabs active="1">
   <van-tab title="物资名称列表" name="0">
-  <view style="margin-top:30rpx;">
+<view style="margin-top:30rpx;">
     <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
       <van-collapse-item title="日常办公用品" name="1">
 

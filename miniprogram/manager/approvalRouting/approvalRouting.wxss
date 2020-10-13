@@ -1,0 +1,15 @@
+.title{
+  margin:20rpx;
+  font-size: 35rpx;
+}
+
+.weui-cell{ 
+  padding:10rpx;
+  margin: 0rpx 10rpx 0rpx 10rpx;
+
+}
+.button{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

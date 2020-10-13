@@ -59,7 +59,8 @@ Page({
           that.setData({
             name: res.data[0].name,
             type: res.data[0].type,
-            imagePath: res.data[0].img         
+            imagePath: res.data[0].img,
+            memo: res.data[0].memo         
           })
         }else{
           Notify({ type: 'warning', duration:3000, message: '物品['+that.data.name+']不存在，请联系管理员添加' });
@@ -117,7 +118,8 @@ Page({
         quantity: 1,
         name: that.data.name,
         imagePath: that.data.imagePath,
-        type:that.data.type
+        type:that.data.type,
+        memo:that.data.memo
       })
 
           //加入购物车数据，存入缓存

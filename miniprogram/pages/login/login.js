@@ -26,21 +26,78 @@ Page({
       avatarUrl:userInfo.avatarUrl
     })
   },
-  loginaction: function (e) {
+  login: function (e) {
     var that = this;
-    if (that.data.phone == 'admin' && that.data.pwd == 'admin') {
-      wx.redirectTo({
-        url: '../../manager/index/index'
+    that.setData({ disabled: true });
+    wx.showLoading({
+      title: '登录中...',
+    })
+
+    const _ = db.command;
+    console.log(that.data.phone);
+    db.collection('zh_users').where({
+      phone: _.eq(that.data.phone)
+    })
+      .get().then(res => {
+        if (res.data.length == 0) {
+          Notify({ type: 'warning', duration: 4000, message: '账户不存在，请联系管理员添加！' });
+          wx.hideLoading();
+          that.setData({ disabled: false });
+        } else {
+          if (that.data.phone == res.data[0].phone && that.data.pwd == res.data[0].phone.substring(7,11)) {
+            wx.hideLoading();
+            console.log('login success!')
+
+            var userDetail = [];
+            userDetail.push({
+              name: res.data[0].name,
+              phone: res.data[0].phone,
+              dept: res.data[0].dept,
+              roletype: res.data[0].roletype,
+              approver: res.data[0].approver            
+            })
+
+            wx.setStorage({
+              key: 'userDetail',
+              data: userDetail[0],
+              success: function (res) {
+                var userDetail = wx.getStorageSync('userDetail');
+                console.log('用户类型:', userDetail.roletype);
+                if (userDetail.roletype == '0') {
+                  wx.redirectTo({
+                    url: '../../manager/index/index'
+                  })
+                }else if (userDetail.roletype=='1'){
+                  wx.redirectTo({
+                    url: '../../users/userIndex/userIndex'
+                  })
+                } else if (userDetail.roletype == '2'){
+                  wx.showToast({
+                    title: '审批页面开发中',
+                  })
+                } else if (userDetail.roletype == '3'){
+                  wx.showToast({
+                    title: '报修管理页面开发中',
+                  })
+                } else if (userDetail.usertype == '4') {
+                  wx.redirectTo({
+                    url: '../../users/userIndex/userIndex'
+                  })
+                }
+                
+              }
+            })
+
+          }
+          else {
+            wx.hideLoading();
+            Notify({ type: 'warning', duration: 2000, message: '密码不正确！' });
+            that.setData({ disabled: false });
+          }
+        }
+
       })
-    }else if(that.data.phone == 'user' && that.data.pwd == 'user'){
-      wx.redirectTo({
-        url: '../../users/userIndex/userIndex'
-      })
-    }else{
-      wx.showToast({
-        title: '账号不存在',
-      })
-    }
+
 
   },
   noinput: function (e) {

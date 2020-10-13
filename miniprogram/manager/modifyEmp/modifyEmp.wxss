@@ -1,0 +1,38 @@
+.assetType{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20rpx;
+}
+
+.assetType text{
+  font-size: 35rpx;
+}
+.radiogroup{
+  padding: 4rpx;
+}
+.button{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+
+.title{
+  margin:20rpx;
+  font-size: 35rpx;
+}
+
+.weui-cell{ 
+  padding:10rpx;
+  margin: 0rpx 10rpx 0rpx 10rpx;
+
+}
+.buttongroup{
+  display: flex;
+  justify-content:center; 
+  margin: 40rpx 20rpx 10rpx 20rpx;
+}
+.button2{
+  width:50%;
+}

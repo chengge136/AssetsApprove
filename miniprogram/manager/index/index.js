@@ -16,7 +16,7 @@ Page({
     
 
   },
-  assetApprove: function () {
+  requestRecords: function () {
     wx.showToast({
       title: '审批模块开发中',
       icon: 'success',
@@ -54,6 +54,11 @@ Page({
       title: '数据分析模块开发中',
       icon: 'success',
       duration: 2000
+    })
+  },
+  settings: function () {
+    wx.navigateTo({
+      url: '../settings/settings',
     })
   },
   /**

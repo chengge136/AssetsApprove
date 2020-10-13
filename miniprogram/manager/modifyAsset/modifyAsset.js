@@ -9,7 +9,8 @@ Page({
     id: '',
     imagePath: '',
     name: '',
-    memo: ''
+    memo: '',
+    type:''
 
   },
 
@@ -30,21 +31,28 @@ Page({
           name: res.data[0].name,
           memo: res.data[0].memo,
           imagePath: res.data[0].img,
+          type:res.data[0].type,
           id: options.id
         })
       })
   },
 
-  removeitem:function(){
+  remove:function(){
     var that = this;
     wx.showModal({
       title: '提示',
       content: '从仓库中移除 ' + that.data.name + ' ？',
       success(res) {
         if (res.confirm) {
+          that.setData({
+            disabled:true
+          });
           console.log('id', that.data.id)
+          wx.showLoading({
+            title: '移除中...',
+          })
           wx.cloud.callFunction({
-            name: 'objectManage',
+            name: 'assetManage',
             data: {
               id: that.data.id,
               action:'R'
@@ -55,11 +63,9 @@ Page({
                 icon: 'success',
                 duration: 2000,
                 success: function () {
-                  setTimeout(function () {
-                    wx.redirectTo({
-                      url: '../objectManage/objectManage'
-                    })
-                  }, 1000) //延迟时间
+                  wx.navigateBack({
+                    delta: 1
+                  })
                 }
               })
             },
@@ -74,19 +80,25 @@ Page({
       }
     })
   },
-  updateitem: function() {
+  update: function() {
     var that = this;
     wx.showModal({
       title: '提示',
       content: '确定修改物品信息？',
       success(res) {
         if (res.confirm) {
-          console.log('id', that.data.id)
+          that.setData({
+            disabled:true
+          });
+          wx.showLoading({
+            title: '更新中...',
+          })
           wx.cloud.callFunction({
-            name: 'objectManage',
+            name: 'assetManage',
             data: {
               id: that.data.id,
               name: that.data.name,
+              type:that.data.type,
               memo:that.data.memo,
               action:'U'
             },
@@ -96,11 +108,9 @@ Page({
                 icon: 'success',
                 duration: 2000,
                 success: function () {
-                  setTimeout(function () {
-                    wx.redirectTo({
-                      url: '../objectManage/objectManage'
-                    })
-                  }, 1000) //延迟时间
+                  wx.navigateBack({
+                    delta: 1
+                  })
                 }
               })
             },
@@ -128,7 +138,11 @@ Page({
       memo: event.detail
     })
   },
-
+  selectType(event) {
+    this.setData({
+      type: event.detail,
+    });
+  },
   //图片点击事件
   imgYu: function(event) {
     console.log(event)

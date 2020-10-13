@@ -16,7 +16,7 @@
 
 
     <view class="button">
-      <button type="primary" disabled='{{disabled}}' bindtap="loginaction">登录</button>
+      <button type="primary" disabled='{{disabled}}' bindtap="login">登录</button>
     </view>
 
     <view class="register">

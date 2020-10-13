@@ -1,0 +1,19 @@
+page{
+  background-color:#F8F8F8; 
+}
+
+.button{
+  display:flex;
+  justify-content: space-between;
+  background-color: #FFFFFE;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  height: 60rpx;
+
+}
+.button i{
+  color: #65B7E7;
+}
+.button text{
+  color:#A6A4A4;
+}

@@ -1,7 +1,7 @@
 <view class="action">
 <view class="item" bindtap="requestAsset">
 <view><text>资产领取申请</text></view>
-<view class="logo"><i class="fa fa-television fa-3x" style="color:#3175FF;"></i></view>
+<view class="logo"><i class="fa fa-shopping-cart fa-3x" style="color:#3175FF;"></i></view>
 </view>
 <view class="item" bindtap="requestBudget">
 <view><text>资产预算申请</text></view>

@@ -14,3 +14,14 @@
 .button2{
   width:50%;
 }
+
+.assetType{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20rpx;
+}
+.radiogroup{
+  padding: 2rpx;
+}
+

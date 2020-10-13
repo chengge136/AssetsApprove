@@ -1,0 +1,44 @@
+<van-tabs active="a">
+	<van-tab title="进行中物资申领" name="a">
+		<view style="margin-top:30rpx;">
+			<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+				<van-collapse-item title="待审批的申请  ({{pendingOrdersLen}})" name="1">
+					<view class="row" wx:for="{{pendingOrders}}" wx:key="index">
+						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
+						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+					</view>
+				</van-collapse-item>
+
+				<van-collapse-item title="审批通过待领取  ({{approvedOrdersLen}})" name="2">
+					<view class="row" wx:for="{{approvedOrders}}" wx:key="index">
+						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
+						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+					</view>
+				</van-collapse-item>
+
+				<van-collapse-item title="被拒绝的申请" name="3">
+					<view class="row" wx:for="{{rejectedOrders}}" wx:key="index">
+						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
+						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+					</view>
+				</van-collapse-item>
+
+			</van-collapse>
+		</view>
+	</van-tab>
+	<van-tab title="已完成申领" name="b">
+		<view wx:for="{{completedorders}}" wx:key="index" style="margin-top:20rpx;">
+			<navigator url="../orderDetail/orderDetail?_id={{item._id}}">
+				<view class="title_a">
+					<view><text>{{item.ctime}}</text></view>
+					<view><text>已完成</text></view>
+				</view>
+				<view class="neworder">
+					<view class="left" style="font-size:30rpx;color:#A6A4A4">
+						<text>申领的物资：{{item.about}}</text>
+					</view>
+				</view>
+			</navigator>
+		</view>
+	</van-tab>
+</van-tabs>

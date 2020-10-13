@@ -1,0 +1,46 @@
+<view style="margin-top:20rpx;">
+	<view style="margin-bottom:20rpx;">
+		<van-nav-bar title="员工管理" left-text="返回" right-text="添加员工" left-arrow bind:click-left="onClickLeft" bind:click-right="onClickRight" />
+	</view>
+	<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+		<van-collapse-item title="行政部" name="1">
+
+			<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.dept=='1'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+		<van-collapse-item title="维护部" name="2">
+
+		<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.dept=='2'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+		<van-collapse-item title="售后部" name="3">
+
+			<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.dept=='3'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+	</van-collapse>
+</view>

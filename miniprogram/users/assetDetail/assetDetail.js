@@ -34,6 +34,7 @@ Page({
         that.setData({
           name: res.data[0].name,
           type: res.data[0].type,
+          memo: res.data[0].memo,
           imagePath: res.data[0].img,
           id:res.data[0]._id
         })
@@ -98,7 +99,8 @@ Page({
         quantity: 1,
         name: that.data.name,
         imagePath: that.data.imagePath,
-        type:that.data.type
+        type:that.data.type,
+        memo:that.data.memo
       })
 
           //加入购物车数据，存入缓存

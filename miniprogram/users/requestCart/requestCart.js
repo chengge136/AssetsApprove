@@ -11,12 +11,19 @@ Page({
     disabled: false,
     carts: [], //数据 
     isempty: null,
-    totalMoney: 0,
-    balance:0,
-    comment:'',
     about:'',
-    menus:'',
-    phone:''
+    itemsinfo:'',
+    assettype:'',
+    tag:'',
+    requestor:'',
+    phone:'',
+    dept:'',
+    memo:'',
+    user:'',
+    required_node:'',
+    curnodeid:''
+
+
 
   },
 
@@ -25,32 +32,80 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+    const _ = db.command;
+    // 获取购物车的物品类别
+    var arr = wx.getStorageSync('cartItems') || [];
     var userDetail = wx.getStorageSync('userDetail');
-    console.log('用户余额有：', userDetail.balance)
+
+    var type=arr[0].type;
+    var dept=userDetail.dept;
+    switch (type) {
+      case '1':
+        that.setData({tag:'办公用品'});
+          break; 
+      case '2':
+        that.setData({tag:'低值易耗品'});
+          break; 
+      case '3':
+        that.setData({tag:'固定资产'});
+        break; 
+    } 
+    
+    switch (dept) {
+      case '1':
+        that.setData({dept:'行政部'});
+          break; 
+      case '2':
+        that.setData({dept:'维护部'});
+          break; 
+      case '3':
+        that.setData({dept:'售后部'});
+        break; 
+    } 
+   
     that.setData({
-      balance: userDetail.balance,
-      phone: userDetail.phone
+      assettype:arr[0].type,
+      requestor:userDetail.name
+    });
+
+    //获取此类别的审批流
+    db.collection('zh_approval_routing').where(
+      {
+        type: _.eq(parseInt(arr[0].type))
+      }
+    ).get({
+      success: function (res) {
+        var appr_setting=res.data[0].appr_setting;
+        console.log(appr_setting,appr_setting[0]);
+
+        that.setData({
+          required_node: appr_setting,
+          curnodeid:appr_setting[0]
+        }) 
+      }
+    })
+
+  },
+  inputMemo: function (event) {
+    var that = this;
+    that.setData({
+      memo: event.detail
     })
   },
-  inputComment: function (e) {
+  inputUser: function (event) {
     var that = this;
-    console.log('comment',e.detail.value)
     that.setData({
-      comment: e.detail.value
+      user: event.detail
     })
   },
   flash() {
     var arr = wx.getStorageSync('cartItems') || [];
     if (arr.length > 0) {
-      var sum = 0
-      for (var i = 0; i < arr.length; i++) {
-        sum += arr[i].price * arr[i].quantity
-      };
+
       // 更新数据  
       this.setData({
         carts: arr,
-        isempty: false,
-        totalMoney: sum * 100
+        isempty: false
       });
     }
   },
@@ -74,8 +129,35 @@ Page({
             icon: "success",
             durantion: 2000
           })
-          //刷新页面
-          that.flash();
+           //刷新页面
+           that.flash();       
+        }
+      })
+    }
+  },
+  bindKeyInput: function (event) {
+    
+    var that=this;
+    console.log(event.target.dataset.itemid);
+    var itemid=event.target.dataset.itemid;
+    var itemname=event.target.dataset.itemname;
+    var cartItems = wx.getStorageSync('cartItems') || []
+    var exist = cartItems.find(function (ele) {
+      return ele.id === itemid
+    })
+    if (exist) {
+      exist.quantity = parseInt(event.detail.value);
+      wx.setStorage({
+        key: 'cartItems',
+        data: cartItems,
+        success: function (res) {
+          wx.showToast({
+            title: itemname+":"+event.detail.value+"个",
+            icon: "success",
+            durantion: 2000
+          })
+           //刷新页面
+           that.flash();
         }
       })
     }
@@ -149,27 +231,23 @@ Page({
   onShow: function () {
     // 获取产品展示页保存的缓存数据（购物车的缓存数组，没有数据，则赋予一个空数组）  
     var arr = wx.getStorageSync('cartItems') || [];
-    console.log('菜品样式有：',arr.length)
+    console.log('物品样式有：',arr.length)
     // 有数据的话，就遍历数据，计算总金额 和 总数量  
     if (arr.length > 0) {
-      var sum=0;
-      var about='';
-      var menus='';
+      var about ='';
+      var itemsinfo='';
       for (var i = 0; i < arr.length; i++) {
-        sum += arr[i].price * arr[i].quantity
-        about += arr[i].name+' '
-        menus += arr[i].name +'-'+ arr[i].price +'-'+ arr[i].quantity+';'
+        about += arr[i].name +' ';
+        itemsinfo += arr[i].name +'-'+ arr[i].quantity+';';
       };
       // 更新数据  
       this.setData({
         carts: arr,
         isempty: false,
-        totalMoney: sum*100,
-        about: about,
-        menus: menus
+        about:about,
+        itemsinfo: itemsinfo
       });
-      console.log('about', about)
-      console.log('menus', menus)
+      console.log('itemsinfo', itemsinfo)
 
     } else {
       this.setData({
@@ -180,40 +258,53 @@ Page({
   Submit(){
 
     var that = this
-    var total = that.data.totalMoney * 0.01;
-    var newbalance = that.data.balance - total;
-
-    if (newbalance < 0) {
-      console.log("账户余额不足，请先充值！")
-      that.setData({ disabled: true });
+    if(that.data.assettype=='1' && that.data.user==''){
       wx.showToast({
-        title: '账户余额不足，请先充值！',
-        icon: 'none',
-        duration: 2000
+        title: '请填写领用人',
       })
-    } else {
+    }else{
       wx.showModal({
         title: '提示',
-        content: '确认提交订单了吗？',
+        content: '确认提交申请单了吗？',
         success(res) {
           if (res.confirm) {
             that.setData({ disabled: true });
-            wx.removeStorageSync('cartItems'); //下单后清空购物车
-            // 1,扣款,存入新的余额信息，更改缓存
+            wx.showLoading({
+              title: '提交中...',
+            })
+
+            // wx.removeStorageSync('cartItems'); //下单后清空购物车
+            // 1,如果是固定资产，需要判定预算
+            
+            //提交
             var userDetail = wx.getStorageSync('userDetail');
-            console.log('当前余额：', userDetail.balance)
-            userDetail.balance = newbalance;
-            wx.setStorage({
-              key: 'userDetail',
-              data: userDetail,
-              success: function (res) {
-                var userDetail = wx.getStorageSync('userDetail');
-                console.log('userDetail:', userDetail);
-                //2，更改数据库 --> a：修改账户余额，b：新增订单数据
-                app.modifyBalance(-total);
-                app.createOrder(that.data.about, that.data.menus, that.data.comment, total);
+            wx.cloud.callFunction({
+              name: 'createOrder',
+              data: {
+                submittype:'1',//1提交物资申请，2为提交报修
+                orderid:new Date().getTime(),
+                requestor: userDetail.name,
+                dept:userDetail.dept,
+                phone: userDetail.phone,
+                assettype:that.data.assettype,
+                about:that.data.about,
+                itemsinfo: that.data.itemsinfo,
+                memo: that.data.memo,
+                user:that.data.user,
+                ctime: new Date().getTime(),
+                required_node:that.data.required_node,
+                //当前审批角色
+                curnodeid:that.data.curnodeid
+              },
+              complete: res => {
+                console.log('createOrder success: ', res);
+                wx.hideLoading();
+                // wx.redirectTo({url: '../userOrders/userOrders',})
+
               }
             })
+
+     
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
@@ -221,6 +312,7 @@ Page({
       })
     }
 
+   
   },
   /**
    * 生命周期函数--监听页面隐藏

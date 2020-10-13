@@ -27,25 +27,30 @@ Page({
 
   addAsset: function (fileId) {
     wx.cloud.callFunction({
-      name: 'addAsset',
+      name: 'assetManage',
       data: {
         img: fileId,
         name: this.data.name,
         type: this.data.type,
-        memo: this.data.memo
+        memo: this.data.memo,
+        action:'A'
       },
       success: res => {
-        wx.showToast({
+        wx.hideLoading();
+        this.setData({
+          disabled:false
+        });
+        wx.showModal({
           title: '添加成功',
-          icon: 'success',
-          duration: 2000,
-          success: function () {
-            setTimeout(function () {
-              //要延时执行的代码
+          content: '是否添加下一个？',
+          success (res) {
+            if (res.confirm) {   
+              console.log("ok"); 
+            } else if (res.cancel) {
               wx.navigateBack({
                 delta: 1
               })
-            }, 1000) //延迟时间
+            }
           }
         })
       },
@@ -57,25 +62,24 @@ Page({
   },
   add() {
     var that = this;
-    if(that.data.name == ''){
-      wx.showToast({
-        title: '请填写物品名称',
-        icon: 'none',
-        duration: 2000,
-      })
-    }else if (!that.data.imagePath == '') {
+    if(!that.data.name == '' && !that.data.imagePath == '') {
 
       wx.showModal({
         title: '提示',
         content: '是否添加['+that.data.name+']到物资仓库',
         success (res) {
           if (res.confirm) {
+            that.setData({
+              disabled:true
+            });
+            wx.showLoading({
+              title: '添加中...',
+            })
             wx.cloud.uploadFile({
               cloudPath: 'asset/' + that.data.name + '.jpg',
               filePath: that.data.imagePath, // 文件路径
               success: res => {
                 console.log(res.fileID);
-                that.setData({ disabled: true });
                 that.addAsset(res.fileID);
               },
               fail: err => {
@@ -91,7 +95,7 @@ Page({
 
     } else {
       wx.showToast({
-        title: '请上传菜品照片',
+        title: '请填写名称并上传照片',
         icon: 'none',
         duration: 2000,
       })

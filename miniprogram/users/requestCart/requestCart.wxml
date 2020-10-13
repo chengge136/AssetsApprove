@@ -10,24 +10,36 @@
 
 <view hidden="{{isempty}}">
   <view class="item" wx:for="{{carts}}" wx:key="index">
-    <van-card num="{{item.quantity}}" tag="办公用品" price="{{item.price}}" desc="测试数据" title="{{item.name}}" thumb="{{item.imagePath}}">
+    <van-card tag="{{tag}}" desc=""  thumb="{{item.imagePath}}">
+    <view slot="title" class="title">
+      {{item.name}}
+    </view>
+    <view slot="num" class="num">
+      <input value="{{item.quantity}}" maxlength="2" bindblur="bindKeyInput" type="number" data-itemname="{{item.name}}" data-itemid="{{item.id}}"/>
+      
+    </view>
       <view slot="footer">
         <van-button size="mini" data-id="{{item.id}}" bind:click="add">加一个</van-button>
         <van-button size="mini" data-id="{{item.id}}" bind:click="remove">删除</van-button>
       </view>
+      
     </van-card>
   </view>
-<view>
+<view style="margin-bottom:80rpx;">
 <van-cell-group>
-  <van-field required clearable value="{{ name }}" placeholder="申请人" label="申请人" bind:change="inputName" />
-  <van-field required clearable value="{{ memo }}" placeholder="领用人" label="领用人" bind:change="inputMemo" />
-  <van-field required clearable value="{{ memo }}" placeholder="备注" label="备注" bind:change="inputMemo" />
-
+  <van-field disabled value="{{ requestor }}" label="申请人"/>
+  <van-field disabled value="{{ dept }}" label="使用部门"/>
+  <view wx:if="{{assettype=='1'}}">
+    <van-field required clearable value="{{ user }}" placeholder="填写领用人" label="领用人" bind:change="inputUser" />
+  </view>
+  <van-field clearable value="{{ memo }}" placeholder="填写备注信息" label="备注" bind:change="inputMemo"/>
 </van-cell-group>
 </view>
 
+  <view class="submit">
 
-  <view>
-    <van-submit-bar disabled="{{disabled}}" button-text="提交申请" bind:submit="Submit" />
+    <van-button icon="star-o" color="linear-gradient(to right, #FF976A, #EE0A24)" round disabled="{{disabled}}" type="info" bindtap="Submit">提交申请</van-button>
+
   </view>
+
 </view>

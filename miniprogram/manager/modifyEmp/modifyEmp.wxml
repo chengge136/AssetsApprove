@@ -1,0 +1,51 @@
+<view class="assetType">
+<view><text>选择员工所在部门：</text></view>
+<view>
+<van-radio-group value="{{ dept }}" bind:change="selectDept" class="radiogroup">
+ <van-row>
+  <van-col span="8"><van-radio name="1">行政部</van-radio></van-col>
+  <van-col span="8"><van-radio name="2">维护部</van-radio></van-col>
+  <van-col span="8"><van-radio name="3">售后部</van-radio></van-col>
+</van-row>
+</van-radio-group>
+</view>
+</view>
+
+<van-cell-group>
+  <van-field disabled value="{{ name }}" placeholder="输入员工姓名" label="员工姓名" />
+  <van-field required clearable value="{{ phone }}" placeholder="输入员工手机号" label="员工手机号" bind:change="inputPhone" />
+</van-cell-group>
+
+<view class="assetType">
+<view><text>选择员工的角色：</text></view>
+<view>
+<van-radio-group value="{{ roletype }}" bind:change="selectRole" class="radiogroup">
+  <van-radio name="1">物资申请与资产报修</van-radio>
+  <van-radio name="4">预算申请者</van-radio>
+  <van-radio name="2">物资申领的审批者</van-radio>
+  <van-radio name="3">维修专员</van-radio>
+</van-radio-group>
+</view>
+</view>
+
+<view wx:if="{{approveflag}}" class="assetType">
+<view><text>选择用户审批时的角色：</text></view>
+<view>
+<van-radio-group value="{{ approver }}" bind:change="selectApprover" class="radiogroup">
+  <van-radio name="a">部门领导</van-radio>
+  <van-radio name="b">综合办主任</van-radio>
+  <van-radio name="c">物资部主任</van-radio>
+  <van-radio name="d">分部分管领导</van-radio>
+  <van-radio name="e">分部主要负责人</van-radio>
+</van-radio-group>
+</view>
+</view>
+
+<view class="buttongroup">
+<view class="button2">
+<button type="warn" size="{{default}}" disabled="{{disabled}}" bindtap="remove"> 移除员工 </button>
+</view>
+<view class="button2">
+<button type="primary" size="{{default}}" disabled="{{disabled}}" bindtap="update"> 修改员工信息 </button>
+</view>
+</view>

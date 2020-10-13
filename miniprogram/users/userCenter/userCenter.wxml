@@ -1,0 +1,46 @@
+<view class="personalMe">
+<view class="left">
+<text style="font-size:40rpx;font-weight:bold;">{{name}}</text>
+<text style="font-size:30rpx;color:#A6A4A4">{{dept}}</text>
+</view>
+
+<view class="right">
+<image src="{{avatarUrl}}" style="width:80px;height:80px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+</view>
+</view>
+
+<view class="count">
+<view class="left">
+<view class="text1"><text>待审批物资申领</text></view>
+<view class="text2"><text>{{assetPending}}</text></view>
+</view>
+
+<view class="right">
+<view class="text1"><text>待维修报修申请</text></view>
+<view class="text2"><text>{{assetFixing}}</text></view>
+</view>
+</view>
+
+<view>
+<view class="button" bindtap="assetRequest_record">
+<view>
+<i class="fa fa-shopping-cart fa"></i>
+<text>  物资申领进度</text>
+</view>
+<view><text>... </text></view>
+</view>
+<view class="button" bindtap="repaire_record">
+<view>
+<i class="fa fa-wrench fa"></i>
+<text>  报修申请进度</text>
+</view>
+<view><text>... </text></view>
+</view>
+<view class="button">
+<view>
+<i class="fa fa-gear fa"></i>
+<text>  设置</text>
+</view>
+<view><text>... </text></view>
+</view>
+</view>

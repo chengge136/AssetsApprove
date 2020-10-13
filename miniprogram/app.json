@@ -7,13 +7,19 @@
     "users/assetSearch/assetSearch",
     "users/assetDetail/assetDetail",
     "users/requestCart/requestCart",
+    "users/userCenter/userCenter",
+    "users/assetRecord/assetRecord",
     "manager/index/index",
     "manager/objectManage/objectManage",
+    "manager/empManage/empManage",
+    "manager/empAdd/empAdd",
+    "manager/modifyEmp/modifyEmp",
     "manager/addAsset/addAsset",
-    "manager/modifyAsset/modifyAsset"
+    "manager/modifyAsset/modifyAsset",
+    "manager/settings/settings",
+    "manager/approvalRouting/approvalRouting"
 
     
-
 
     
   ],
