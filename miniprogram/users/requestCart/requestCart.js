@@ -38,34 +38,15 @@ Page({
     var userDetail = wx.getStorageSync('userDetail');
 
     var type=arr[0].type;
-    var dept=userDetail.dept;
-    switch (type) {
-      case '1':
-        that.setData({tag:'办公用品'});
-          break; 
-      case '2':
-        that.setData({tag:'低值易耗品'});
-          break; 
-      case '3':
-        that.setData({tag:'固定资产'});
-        break; 
-    } 
+    var depttype=userDetail.dept;
+    var tag=app.returnHanAssetType(type);
+    var dept=app.returnHanDept(depttype);
     
-    switch (dept) {
-      case '1':
-        that.setData({dept:'行政部'});
-          break; 
-      case '2':
-        that.setData({dept:'维护部'});
-          break; 
-      case '3':
-        that.setData({dept:'售后部'});
-        break; 
-    } 
-   
     that.setData({
       assettype:arr[0].type,
-      requestor:userDetail.name
+      requestor:userDetail.name,
+      tag:tag,
+      dept:dept
     });
 
     //获取此类别的审批流
@@ -299,7 +280,12 @@ Page({
               complete: res => {
                 console.log('createOrder success: ', res);
                 wx.hideLoading();
-                // wx.redirectTo({url: '../userOrders/userOrders',})
+                wx.showToast({
+                  title: '提交成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+              wx.redirectTo({url: '../assetRecord/assetRecord',})
 
               }
             })

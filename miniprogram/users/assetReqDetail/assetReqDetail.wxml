@@ -1,0 +1,41 @@
+<van-notice-bar
+  left-icon="volume-o"
+  text="可查看下面的申请进度，点击转发此给相应的负责人，请求帮忙审批申请单"
+/>
+
+<view class="title">
+
+	<view class="status"><text>等待审批</text></view>
+	<view>
+		<button size="mini" type="primary" data-name="shareBtn" open-type="share">转发给{{approverStep}}</button> 
+	</view>
+
+</view>
+
+
+
+<view class="div">
+
+	<view class="userinfo">
+		<view>申请人：<text>{{requestor}}</text></view>
+		<view>所在部门：<text>{{dept}}</text></view>
+		<view wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
+		<view>备注：<text>{{memo}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">物资清单</van-divider>
+
+	<view wx:for="{{itemsinfo}}" wx:key="index">
+		<view class="menu_item"><text>{{item.name}}</text> <text>x</text> <text>{{item.number}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">申请进度</van-divider>
+	<view class="other">
+    <van-steps
+    steps="{{ steps }}"
+    active="{{ active }}"
+    direction="vertical"
+  />
+	</view>
+  
+</view>

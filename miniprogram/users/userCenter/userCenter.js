@@ -1,5 +1,6 @@
 // users/myInfo/myInfo.js
 const db = wx.cloud.database();
+var app = getApp();
 Page({
 
   /**
@@ -35,23 +36,11 @@ Page({
       }
     })
 
-    switch (userDetail.dept) {
-      case '1':
-        that.setData({dept:'行政部'});
-          break; 
-      case '2':
-        that.setData({dept:'维护部'});
-          break; 
-      case '3':
-        that.setData({dept:'售后部'});
-        break; 
-    } 
-
     that.setData({
       name: userDetail.name,
+      dept:app.returnHanDept(userDetail.dept),
       avatarUrl: userInfo.avatarUrl
     })
-    console.log(userDetail.avatarUrl);
   },
   assetRequest_record(){
     wx.navigateTo({ url: '../assetRecord/assetRecord' })

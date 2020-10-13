@@ -95,9 +95,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "manager/empManage/empManage",
-					"pathName": "manager/empManage/empManage",
+					"id": 6,
+					"name": "users/assetRecord/assetRecord",
+					"pathName": "users/assetRecord/assetRecord",
 					"query": "",
 					"scene": null
 				},

@@ -1,0 +1,37 @@
+<view class="title">
+
+	<view class="status"><text>被拒绝</text></view>
+	<view>
+		<text>申请被拒绝，请查看拒绝原因，重新提交</text>
+	</view>
+
+</view>
+
+
+
+<view class="div">
+
+	<view class="userinfo">
+		<view>申请人：<text>{{requestor}}</text></view>
+		<view>所在部门：<text>{{dept}}</text></view>
+		<view wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
+		<view>备注：<text>{{memo}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">物资清单</van-divider>
+
+	<view wx:for="{{itemsinfo}}" wx:key="index">
+		<view class="menu_item"><text>{{item.name}}</text> <text>x</text> <text>{{item.number}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">申请进度</van-divider>
+	<view class="other">
+    <van-steps
+    steps="{{ steps }}"
+    active="{{ active }}"
+    direction="vertical"
+    active-color="#FF7043"
+  />
+	</view>
+  
+</view>

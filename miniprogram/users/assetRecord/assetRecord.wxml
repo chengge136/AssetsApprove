@@ -4,22 +4,28 @@
 			<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
 				<van-collapse-item title="待审批的申请  ({{pendingOrdersLen}})" name="1">
 					<view class="row" wx:for="{{pendingOrders}}" wx:key="index">
+					<navigator url="../assetReqDetail/assetReqDetail?_id={{item._id}}&curnodeid={{item.curnodeid}}&ctime={{item.ctime}}">
 						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
 						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+					</navigator>
 					</view>
 				</van-collapse-item>
 
 				<van-collapse-item title="审批通过待领取  ({{approvedOrdersLen}})" name="2">
 					<view class="row" wx:for="{{approvedOrders}}" wx:key="index">
+					<navigator url="../assetApprovedDetail/assetApprovedDetail?_id={{item._id}}&ctime={{item.ctime}}">
 						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
 						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+						</navigator>
 					</view>
 				</van-collapse-item>
 
-				<van-collapse-item title="被拒绝的申请" name="3">
+				<van-collapse-item title="被拒绝的申请 ({{rejectedOrdersLen}})" name="3">
 					<view class="row" wx:for="{{rejectedOrders}}" wx:key="index">
+					<navigator url="../assetRejectDetail/assetRejectDetail?_id={{item._id}}&ctime={{item.ctime}}">
 						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
 						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
+						</navigator>
 					</view>
 				</van-collapse-item>
 
@@ -28,7 +34,7 @@
 	</van-tab>
 	<van-tab title="已完成申领" name="b">
 		<view wx:for="{{completedorders}}" wx:key="index" style="margin-top:20rpx;">
-			<navigator url="../orderDetail/orderDetail?_id={{item._id}}">
+			<navigator url="../assetCompletedDetail/assetCompletedDetail?_id={{item._id}}&ctime={{item.ctime}}">
 				<view class="title_a">
 					<view><text>{{item.ctime}}</text></view>
 					<view><text>已完成</text></view>

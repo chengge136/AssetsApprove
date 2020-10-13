@@ -1,0 +1,44 @@
+<van-notice-bar left-icon="volume-o" text="提交报修后，请转发给专员，告知已提交报修单，专员会会尽快上门维修" />
+
+
+<van-cell-group>
+	<van-field value="{{ requestor }}" label="提交人" disabled />
+	<van-field value="{{ dept }}" label="所在部门" disabled />
+  <van-field value="{{ assetname }}" required bind:input="assetnameIn" required clearable label="设备名称" placeholder="请输入设备名称" />
+	<van-field value="{{ addr }}" required bind:input="addrIn" required clearable label="设备所在位置" placeholder="请输入设备所在位置" />
+	<van-field value="{{ user }}" bind:input="userIn" clearable label="使用人" placeholder="部门使用则留空" />
+
+	<view class="icon2" bindtap="choose_image">
+		<i class="fa fa-image fa-2x" style="color:#C2C2C2;"></i>
+		<text>上传问题设备的照片</text>
+	</view>
+</van-cell-group>
+
+<view wx:if="{{!imagePath==''}}">
+	<view class="image">
+		<text>上传的图片</text>
+		<image bindtap="imgYu" mode="aspectFit" data-src="{{imagePath}}" src="{{imagePath}}"></image>
+	</view>
+	<view class="q-image-remover" bindtap="removeImage">
+		<i class="fa fa-remove" style="color:red;"></i>
+		<text>删除图片</text>
+	</view>
+</view>
+
+
+<view>
+	<view class="problem-desc"><text>问题描述</text></view>
+	<textarea class="textarea-bg" maxlength="200" placeholder="简单描述设备的问题" bindinput="getDataBindTap" />
+	</view>
+<view>
+<view class="problem-desc"><text>紧急情况下，可联系专员来报修设备问题</text></view>
+<view class="button-sp-area">
+      <button type="primary" size="mini" open-type="contact"><i class="fa fa-handshake-o fa" style="color:#FFFFFF;"> 联系专员</i></button>
+</view>
+</view>
+
+
+
+<view class="button">
+<van-button size="large" type="info" bind:click="Submit"  disabled='{{disabled}}' >提交报修单</van-button>
+</view>

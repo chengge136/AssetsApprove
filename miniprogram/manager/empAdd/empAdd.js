@@ -10,7 +10,7 @@ Page({
     disabled:false,
     dept: '1',
     roletype:'1',
-    approver:'a',
+    approver:'1',
     approveflag:false
 
   },

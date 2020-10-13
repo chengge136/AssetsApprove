@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-divider": "../../vant/divider/index",
+    "van-button": "../../vant/button/index",
+    "van-field": "../../vant/field/index",
+    "van-steps": "../../vant/steps/index",
+    "van-notice-bar": "../../vant/notice-bar/index",
+    "van-icon": "../../vant/icon/index"
+  }
+}

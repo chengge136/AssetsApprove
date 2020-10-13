@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-row": "../../vant/row/index",
+    "van-col": "../../vant/col/index",
+    "van-button": "../../vant/button/index",
+    "van-field": "../../vant/field/index",
+    "van-radio": "../../vant/radio/index",
+    "van-radio-group": "../../vant/radio-group/index",
+    "van-notice-bar": "../../vant/notice-bar/index"
+  },
+  "navigationBarTitleText": "设备维修上报"
+  
+}

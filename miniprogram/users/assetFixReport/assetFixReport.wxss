@@ -1,0 +1,72 @@
+.label text{
+  font-size: 28rpx;
+  margin-left:30rpx;
+  
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.button{
+  bottom:0; 
+  width:100%; 
+}
+
+.icon1{
+ margin-left:30rpx;
+ margin-top:30rpx;
+}
+.icon1 text{
+  margin-left:10rpx;
+  color:#03A9F4;
+}
+.facilityid{
+display:flex;
+justify-content:flex-end;
+margin-right:30rpx;
+}
+.facilityid text{
+  color:#C2C2C2;
+  
+}
+
+.icon2{
+ margin-left:30rpx;
+ margin-top:30rpx;
+ margin-bottom:30rpx;
+}
+.icon2 text{
+  margin-left:10rpx;
+  color:#C2C2C2;
+}
+textarea {
+  width: 700rpx;
+  height: 400rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+
+
+.image{
+  display:flex;
+  margin: 30rpx; /* 边距 */
+}
+.image text{
+  font-size: 11pt;
+}
+.image image{
+  height: 140rpx;
+  width: 30%;
+  margin-left: 37rpx;
+}
+.q-image-remover{
+  margin: 30rpx; /* 边距 */
+}
+
+q-image-remover text{
+  font-size: 11pt;
+}
+.button-sp-area{
+  margin: 10rpx 0rpx 80rpx 30rpx;
+}

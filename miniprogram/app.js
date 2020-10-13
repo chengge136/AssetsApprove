@@ -36,14 +36,14 @@ App({
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second = now.getSeconds();
-    return year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+    return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
   },
   getDate: function (now) {
 
     var year = now.getFullYear();
     var month = now.getMonth() + 1;
     var date = now.getDate();
-    return year + "-" + month + "-" + date;
+    return year + "/" + month + "/" + date;
   },
   getcurrentDate:function(now){
     var timestamp = Date.parse(new Date());
@@ -56,6 +56,39 @@ App({
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 
     return Y + '年' + M + '月' + D + '日'  
+  },
+  returnHanAssetType:function(type){
+    if(type=='1'){
+      return '办公用品';
+    }else if(type=='2'){
+      return '低值易耗品';
+    }else{
+      return '固定资产';
+    }
+  },
+  returnHanDept:function(type){
+    if(type=='1'){
+      return '行政部';
+    }else if(type=='2'){
+      return '维护部';
+    }else{
+      return '售后部';
+    }
+  },
+
+  getApprStepByNodeid:function(curnodeid){
+    if(curnodeid=='1'){
+      return '部门领导';
+    }else if(curnodeid=='2'){
+      return '综合办主任';
+    }else if(curnodeid=='3'){
+      return '物资部主任';
+    }else if(curnodeid=='4'){
+      return '分部分管领导';
+    }else{
+      return '分部主要负责人';
+    }
+    
   },
 
 })

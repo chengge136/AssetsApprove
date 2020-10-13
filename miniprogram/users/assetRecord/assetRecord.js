@@ -14,7 +14,8 @@ Page({
     rejectedOrders:[],
     completedorders: [],
     pendingOrdersLen:0,
-    approvedOrdersLen:0
+    approvedOrdersLen:0,
+    rejectedOrdersLen:0
 
   },
 
@@ -67,7 +68,8 @@ Page({
           rejectedOrders:rejectedOrders,
           completedorders: completedorders,
           pendingOrdersLen:pendingOrders.length,
-          approvedOrdersLen:approvedOrders.length
+          approvedOrdersLen:approvedOrders.length,
+          rejectedOrdersLen:rejectedOrders.length
         })
       }
     })

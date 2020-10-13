@@ -30,10 +30,9 @@
 
     <view class="comment">
       <view class="title"><text>如何跟进自己的申请</text></view>
-      <view class="content"><text>在我的申请进度内查看，申请是否完成，或者需要审批。</text></view>    
+      <view class="content"><text>请在个人中心，查看自己的申请进度。</text></view>    
     </view>
 
 </view>
-<button data-name="shareBtn" open-type="share">审批：转发给部门领导张三</button> 
 
 

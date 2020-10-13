@@ -42,10 +42,8 @@ Page({
     })
   },
   fixReport: function () {
-    wx.showToast({
-      title: '维修汇报模块开发中',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '../assetFixReport/assetFixReport',
     })
   },
   userCenter: function () {
@@ -100,12 +98,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() { 
-    return {
-       title: '你有新的物资申请审批',
-       desc: '请进入小程序，审批员工的物资申请单。', 
-       path: '/users/userIndex/userIndex',
-       //imageUrl: '' // 图片 URL
-        }
+
     }
 
   
