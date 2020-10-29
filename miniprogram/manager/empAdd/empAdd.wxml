@@ -21,9 +21,10 @@
 <view>
 <van-radio-group value="{{ roletype }}" bind:change="selectRole" class="radiogroup">
   <van-radio name="1">物资申请与资产报修</van-radio>
-  <van-radio name="4">预算申请者</van-radio>
+  <van-radio name="4">部门综合员（预算申请）</van-radio>
   <van-radio name="2">物资申领的审批者</van-radio>
   <van-radio name="3">维修专员</van-radio>
+  <van-radio name="0">综合办综合员（系统admin）</van-radio>
 </van-radio-group>
 </view>
 </view>

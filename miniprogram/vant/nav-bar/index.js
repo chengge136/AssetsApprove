@@ -1,4 +1,5 @@
 import { VantComponent } from '../common/component';
+import { getRect, getSystemInfoSync } from '../common/utils';
 VantComponent({
   classes: ['title-class'],
   props: {
@@ -13,6 +14,7 @@ VantComponent({
     },
     leftText: String,
     rightText: String,
+    customStyle: String,
     leftArrow: Boolean,
     border: {
       type: Boolean,
@@ -28,14 +30,13 @@ VantComponent({
     },
   },
   data: {
-    statusBarHeight: 0,
-    height: 44,
+    height: 46,
   },
   created() {
-    const { statusBarHeight } = wx.getSystemInfoSync();
+    const { statusBarHeight } = getSystemInfoSync();
     this.setData({
       statusBarHeight,
-      height: 44 + statusBarHeight,
+      height: 46 + statusBarHeight,
     });
   },
   mounted() {
@@ -53,7 +54,7 @@ VantComponent({
         return;
       }
       wx.nextTick(() => {
-        this.getRect('.van-nav-bar').then((res) => {
+        getRect.call(this, '.van-nav-bar').then((res) => {
           this.setData({ height: res.height });
         });
       });

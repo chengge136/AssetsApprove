@@ -11,11 +11,7 @@
 .radiogroup{
   padding: 4rpx;
 }
-.button{
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
+
 
 
 .title{

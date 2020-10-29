@@ -1,9 +1,9 @@
-<van-notice-bar left-icon="volume-o" text="提交报修后，请转发给专员，告知已提交报修单，专员会会尽快上门维修" />
+<van-notice-bar left-icon="volume-o" text="提交报修后，可在个人中心查看进度，可转发给专员，告知已提交报修单，专员会会尽快上门维修" />
 
 
 <van-cell-group>
+	<van-field value="{{ dept }}" label="申请部门" disabled />
 	<van-field value="{{ requestor }}" label="提交人" disabled />
-	<van-field value="{{ dept }}" label="所在部门" disabled />
   <van-field value="{{ assetname }}" required bind:input="assetnameIn" required clearable label="设备名称" placeholder="请输入设备名称" />
 	<van-field value="{{ addr }}" required bind:input="addrIn" required clearable label="设备所在位置" placeholder="请输入设备所在位置" />
 	<van-field value="{{ user }}" bind:input="userIn" clearable label="使用人" placeholder="部门使用则留空" />
@@ -33,7 +33,7 @@
 <view>
 <view class="problem-desc"><text>紧急情况下，可联系专员来报修设备问题</text></view>
 <view class="button-sp-area">
-      <button type="primary" size="mini" open-type="contact"><i class="fa fa-handshake-o fa" style="color:#FFFFFF;"> 联系专员</i></button>
+      <button type="warn" size="mini" open-type="contact"><i class="fa fa-handshake-o fa" style="color:#FFFFFF;"> 联系专员</i></button>
 </view>
 </view>
 

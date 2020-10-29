@@ -20,6 +20,12 @@ Page({
   empManage(){
     wx.navigateTo({ url: '../empManage/empManage' })
   },
+  accessHub(){
+    wx.navigateTo({ url: '../accessHub/accessHub' })
+  },
+  assetManage(){
+    wx.navigateTo({ url: '../objectManage/objectManage' })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -14,15 +14,27 @@
     "users/assetRejectDetail/assetRejectDetail",
     "users/assetCompletedDetail/assetCompletedDetail",
     "users/assetFixReport/assetFixReport",
+    "users/fixRecord/fixRecord",
+    "users/assetFixDetail/assetFixDetail",
     "manager/index/index",
     "manager/objectManage/objectManage",
     "manager/empManage/empManage",
+    "manager/accessHub/accessHub",
     "manager/empAdd/empAdd",
     "manager/modifyEmp/modifyEmp",
     "manager/addAsset/addAsset",
     "manager/modifyAsset/modifyAsset",
     "manager/settings/settings",
-    "manager/approvalRouting/approvalRouting"
+    "manager/approvalRouting/approvalRouting",
+    "manager/budgetApprove/budgetApprove",
+    "manager/budgetApproveDetail/budgetApproveDetail",
+    "approver/assetApprove1/assetApprove1",
+    "approver/assetApprove2/assetApprove2",
+    "approver/assetApproveDetail/assetApproveDetail",
+    "approver/budgetApproveDetail/budgetApproveDetail",
+    "repaire/assetFix/assetFix",
+    "repaire/assetFixDetail/assetFixDetail",
+    "budget/budgetRequest/budgetRequest"
 
     
 
@@ -32,7 +44,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "物资领用与报修工具",
+    "navigationBarTitleText": "正好集团莲都分部管家帮",
     "navigationBarTextStyle": "black"
   },
   "cloud": true,

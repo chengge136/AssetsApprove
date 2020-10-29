@@ -54,7 +54,7 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/login/login",
+					"name": "登录",
 					"pathName": "pages/login/login",
 					"query": "",
 					"scene": null
@@ -67,23 +67,16 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "users/requestAsset/requestAsset",
-					"pathName": "users/requestAsset/requestAsset",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 3,
-					"name": "manager/index/index",
+					"name": "管理员页面",
 					"pathName": "manager/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 4,
-					"name": "users/requestCart/requestCart",
-					"pathName": "users/requestCart/requestCart",
+					"id": 3,
+					"name": "预算申请",
+					"pathName": "budget/budgetRequest/budgetRequest",
 					"query": "",
 					"scene": null
 				},
@@ -105,6 +98,27 @@
 					"id": 7,
 					"name": "users/userCenter/userCenter",
 					"pathName": "users/userCenter/userCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "manager/accessHub/accessHub",
+					"pathName": "manager/accessHub/accessHub",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "repaire/assetFix/assetFix",
+					"pathName": "repaire/assetFix/assetFix",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "approver/assetApprove1/assetApprove1",
+					"pathName": "approver/assetApprove1/assetApprove1",
 					"query": "",
 					"scene": null
 				}

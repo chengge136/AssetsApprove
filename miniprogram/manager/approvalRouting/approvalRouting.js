@@ -28,11 +28,13 @@ Page({
       {value: '5', name: '分部主要负责人',checked:false},
     ],
     roles4: [
+      {value: '0', name: '部门综合员',checked:false},
       {value: '1', name: '部门领导',checked:false},
       {value: '2', name: '综合办主任',checked:false},
       {value: '3', name: '物资部主任',checked:false},
       {value: '4', name: '分部分管领导',checked:false},
       {value: '5', name: '分部主要负责人',checked:false},
+      {value: '6', name: '综合办综合员（系统admin）',checked:false}
     ],
     routStr1:'',
     routStr2:'',
@@ -130,19 +132,19 @@ Page({
 
   save1:function(){
     var that=this;
-    that.updateRouting(1,this.data.routStr1);
+    that.updateRouting('1',this.data.routStr1);
   },
   save2:function(){
     var that=this;
-    that.updateRouting(2,this.data.routStr2);
+    that.updateRouting('2',this.data.routStr2);
   },
   save3:function(){
     var that=this;
-    that.updateRouting(3,this.data.routStr3);
+    that.updateRouting('3',this.data.routStr3);
   },
   save4:function(){
     var that=this;
-    that.updateRouting(4,this.data.routStr4);
+    that.updateRouting('4',this.data.routStr4);
   },
   updateRouting: function(type,value) {
     var that = this;

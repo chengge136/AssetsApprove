@@ -23,9 +23,9 @@ Page({
       duration: 2000
     })
   },
-  assetManage: function () {
+  budgetApprove: function () {
     wx.navigateTo({
-      url: '../objectManage/objectManage',
+      url: '../budgetApprove/budgetApprove',
     })
   },
   employeeManage: function () {

@@ -1,5 +1,7 @@
 // pages/facilityInfo/facilityInfo.js
 //云数据库初始化
+import Notify from '../../vant/notify/notify';
+
 const db = wx.cloud.database();
 var app = getApp();
 Page({
@@ -16,6 +18,7 @@ Page({
     user: '',
     imagePath:'',
     problemDetail:'',
+    ctime:'',
     disabled: false
   },
 
@@ -29,7 +32,8 @@ Page({
     that.setData({
       requestor:userDetail.name ,
       dept: app.returnHanDept(userDetail.dept),
-      phone: userDetail.phone
+      phone: userDetail.phone,
+      ctime:new Date().getTime()
     });
   },
 
@@ -87,7 +91,7 @@ Page({
     var that = this
     if(that.data.problemDetail=='' && that.data.imagePath==''){
       wx.showToast({
-        title: '问题描述或者照片必须提交一个',
+        title: '描述问题或照片',
       })
     }else{
       if(!that.data.assetname=='' && !that.data.addr==''){
@@ -100,11 +104,23 @@ Page({
               wx.showLoading({
                 title: '提交中...',
               })
-              
-              //有图片就上传图片，没有就不上传，明天继续这里
-
-
-       
+              //1，有图片的情况下
+              if (!that.data.imagePath == '') {
+                wx.cloud.uploadFile({
+                  cloudPath: 'fixReport/' + that.data.ctime + '.jpg',
+                  filePath: that.data.imagePath, // 文件路径
+                  success: res => {
+                    // get resource ID
+                    console.log(res.fileID);
+                    that.report(res.fileID);    
+                  },
+                  fail: err => {
+                    // handle error
+                  }
+                })
+              }else{
+                that.report('');
+              }       
             } else if (res.cancel) {
               console.log('用户点击取消')
             }
@@ -113,7 +129,42 @@ Page({
       }
     }
   },
-
+  report:function(fileId){
+    var userDetail = wx.getStorageSync('userDetail');
+    wx.cloud.callFunction({
+      name: 'fixReport',
+      data: {
+        orderid:this.data.ctime,
+        requestor:  this.data.requestor,
+        dept:  userDetail.dept,
+        phone:  this.data.phone,
+        assetname:  this.data.assetname,
+        addr:  this.data.addr,
+        user:  this.data.user,
+        imagePath: fileId,
+        problemDetail: this.data.problemDetail,
+        ctime: this.data.ctime,
+        action:'A'
+      },
+      success: res => {
+        console.log('调用云函数成功: ', res);
+        wx.showToast({
+          title: '上报成功',
+          icon: 'success',
+          duration: 1000,
+          success: function () {
+            wx.redirectTo({
+              url: '../userCenter/userCenter'
+            })
+          }
+        })
+      },
+      fail: err => {
+        // handle error
+        console.log(err)
+      }
+    })
+  },
 
 
   assetnameIn: function (event) {

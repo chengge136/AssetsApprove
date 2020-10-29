@@ -40,11 +40,11 @@ margin-right:30rpx;
   color:#C2C2C2;
 }
 textarea {
+  padding:10rpx;
   width: 700rpx;
-  height: 400rpx;
-  margin-left: 20rpx;
-  margin-right: 10rpx;
-  margin-top: 10rpx;
+  height: 150rpx;
+  margin:20rpx 30rpx;
+  border: 2px solid #ddd;
 }
 
 
@@ -69,4 +69,8 @@ q-image-remover text{
 }
 .button-sp-area{
   margin: 10rpx 0rpx 80rpx 30rpx;
+}
+
+.problem-desc{
+  margin: 30rpx; /* 边距 */
 }

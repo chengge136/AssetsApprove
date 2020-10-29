@@ -1,0 +1,41 @@
+<van-tabs active="a">
+	<van-tab title="进行中设备报修" name="a">
+		<view style="margin-top:30rpx;">
+			<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+				<van-collapse-item title="待维修的报修申请  ({{pendingOrdersLen}})" name="1">
+					<view class="row" wx:for="{{pendingOrders}}" wx:key="index">
+					<navigator url="../assetFixDetail/assetFixDetail?_id={{item._id}}&status={{item.status}}">
+						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
+						<view> <text><text class="text_title">维修的设备：</text>{{item.assetname}}</text></view>
+					</navigator>
+					</view>
+				</van-collapse-item>
+
+				<van-collapse-item title="被驳回的报修申请 ({{rejectedOrdersLen}})" name="2">
+					<view class="row" wx:for="{{rejectedOrders}}" wx:key="index">
+					<navigator url="../assetFixDetail/assetFixDetail?_id={{item._id}}&status={{item.status}}">
+						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
+						<view> <text><text class="text_title">维修的设备：</text>{{item.assetname}}</text></view>
+						</navigator>
+					</view>
+				</van-collapse-item>
+
+			</van-collapse>
+		</view>
+	</van-tab>
+	<van-tab title="已完成报修" name="b">
+		<view wx:for="{{completedorders}}" wx:key="index" style="margin-top:20rpx;">
+			<navigator url="../assetFixDetail/assetFixDetail?_id={{item._id}}&status={{item.status}}">
+				<view class="title_a">
+					<view><text>{{item.ctime}}</text></view>
+					<view><text>已完成</text></view>
+				</view>
+				<view class="neworder">
+					<view class="left" style="font-size:30rpx;color:#A6A4A4">
+						<text>维修的设备：{{item.assetname}}</text>
+					</view>
+				</view>
+			</navigator>
+		</view>
+	</van-tab>
+</van-tabs>

@@ -36,6 +36,18 @@ Page({
       }
     })
 
+    db.collection('zh_assets_fix_order').where({
+      phone: _.eq(userDetail.phone),
+      status: _.eq('1')
+    }).count({
+      success: function (res) {
+        console.log('已经完成订单', res.total)
+        that.setData({
+          assetFixing: res.total
+        })
+      }
+    })
+
     that.setData({
       name: userDetail.name,
       dept:app.returnHanDept(userDetail.dept),
@@ -46,10 +58,7 @@ Page({
     wx.navigateTo({ url: '../assetRecord/assetRecord' })
   },
   repaire_record(){
-    // wx.navigateTo({ url: '../partner/partner' })
-    wx.showToast({
-      title: '开发中',
-    })
+    wx.navigateTo({ url: '../fixRecord/fixRecord' })
   },
 
   /**

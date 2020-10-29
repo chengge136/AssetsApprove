@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-empty": "../../vant/empty/index"
+  },
+  "navigationBarTitleText": "综合办综合员审批"
+}

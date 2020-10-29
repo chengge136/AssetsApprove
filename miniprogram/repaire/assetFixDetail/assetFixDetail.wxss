@@ -1,0 +1,66 @@
+page{
+  background-color:#F8F8F8; 
+}
+.title{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  background-color: #FFFFFE; 
+  margin-bottom: 20rpx;
+  height: 130rpx;
+
+}
+.status{
+  padding: 10rpx;
+}
+.status text{
+  font-size:40rpx;
+  font-weight:bold;
+  color:#F2991D;
+}
+.div{
+  margin-bottom: 20rpx;
+  background-color:#FFFFFE; 
+  padding: 20rpx;
+}
+
+.buttongroup{
+  display: flex;
+  justify-content:center; 
+  margin: 40rpx 20rpx 10rpx 20rpx;
+}
+
+.button2{
+  width:50%;
+}
+textarea {
+  padding:10rpx;
+  width: 650rpx;
+  height: 150rpx;
+  border: 2px solid #ddd;
+}
+
+.label text{
+  font-size: 28rpx;
+  margin-left:30rpx;
+  
+}
+
+
+.image{
+  display:flex;
+  margin: 30rpx; /* 边距 */
+}
+.image text{
+  font-size: 11pt;
+}
+.image image{
+  height: 140rpx;
+  width: 30%;
+  margin-left: 37rpx;
+}
+
+.problem-desc{
+  margin: 30rpx; /* 边距 */
+}
+

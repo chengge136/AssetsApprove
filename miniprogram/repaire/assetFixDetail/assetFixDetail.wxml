@@ -1,0 +1,41 @@
+<view class="title">
+	<view class="status"><text>等待维修</text></view>
+	<view>
+		<text>请查看设备问题，有问题可点击电话联系报修人</text>
+	</view>
+</view>
+
+<view class="div">
+<van-divider contentPosition="center">设备基本情况</van-divider>
+<van-cell-group>
+	<van-field value="{{ dept }}" label="申请部门" disabled/>
+	<van-field value="{{ requestor }}" label="报修人"  disabled/>
+  <van-field value="{{ phone }}" label="联系电话" icon="phone-o" bind:click-icon="makeCall" disabled/>
+	<van-field value="{{ assetname }}" label="设备名称"  disabled/>
+	<van-field value="{{ addr }}" label="设备所在位置" disabled/>
+	<van-field wx:if="{{!user==''}}" value="{{ user }}" label="使用人" disabled/>
+	<van-field required value="{{ comment }}" bind:input="commentIn" clearable label="备注信息" placeholder="填写备注信息" />
+
+</van-cell-group>
+<van-divider contentPosition="center">设备问题描述</van-divider>
+<textarea class="textarea-bg" maxlength="200" disabled placeholder="未填写问题描述" value="{{problemDetail}}" />
+
+ <van-divider contentPosition="center">问题设备照片</van-divider>
+    <view wx:if="{{!img==''}}">
+      <view class="image">
+        <image bindtap="imgYu" mode="aspectFit" data-src="{{img}}" src="{{img}}"></image>
+      </view>
+    </view>
+</view>
+
+<view class="div">
+<view class="buttongroup">
+<view class="button2">
+<button type="warn" size="{{default}}" disabled="{{disabled}}" bindtap="reject"> 驳回上报 </button>
+</view>
+<view class="button2">
+<button type="primary" size="{{default}}" disabled="{{disabled}}" bindtap="approve"> 完成维修 </button>
+</view>
+</view>
+</view>
+ <van-notify id="van-notify" />

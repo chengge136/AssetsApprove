@@ -150,7 +150,7 @@ Page({
     return {
       title: this.data.requestor+'的物资申请',
       desc: '点击进入小程序，审批员工的物资申请单', 
-      path: '/users/userIndex/userIndex',
+      path: '/pages/authorized/authorized',
       //imageUrl: '' // 图片 URL
        }
   }

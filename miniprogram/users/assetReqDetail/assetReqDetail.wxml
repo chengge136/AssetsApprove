@@ -7,7 +7,7 @@
 
 	<view class="status"><text>等待审批</text></view>
 	<view>
-		<button size="mini" type="primary" data-name="shareBtn" open-type="share">转发给{{approverStep}}</button> 
+		<button size="mini" type="primary" data-name="shareBtn" open-type="share">转发给{{approverStep}}审批</button> 
 	</view>
 
 </view>

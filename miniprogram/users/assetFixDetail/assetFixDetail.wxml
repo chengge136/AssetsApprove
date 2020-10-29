@@ -1,0 +1,58 @@
+<view class="title" wx:if="{{status=='1'}}">
+	<view class="status"><text style="color:#F2991D;">等待维修</text></view>
+	<view>
+		<text>已提交，等待上门维修</text>
+	</view>
+</view>
+
+<view class="title" wx:if="{{status=='2'}}">
+	<view class="status"><text style="color:#00B26A;">已完成</text></view>
+	<view>
+		<text>维修已完成</text>
+	</view>
+</view>
+
+<view class="title" wx:if="{{status=='-1'}}">
+	<view class="status"><text style="color:#FF534D;">被驳回</text></view>
+	<view>
+		<text>维修上报被驳回，查看原因</text>
+	</view>
+</view>
+
+
+
+<view class="div">
+
+	<view class="userinfo">
+		<view>申请人：<text>{{requestor}}</text></view>
+		<view>所在部门：<text>{{dept}}</text></view>
+    <view>维修设备：<text>{{assetname}}</text></view>
+    <view>设备位置：<text>{{addr}}</text></view>
+
+		<view wx:if="{{!user==''}}">使用人：<text>{{user}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">设备问题描述</van-divider>
+  <textarea class="textarea-bg" maxlength="200" disabled placeholder="未填写问题描述" value="{{problemDetail}}" />
+
+
+  <van-divider contentPosition="center">问题设备照片</van-divider>
+    <view wx:if="{{!img==''}}">
+      <view class="image">
+        <image bindtap="imgYu" mode="aspectFit" data-src="{{img}}" src="{{img}}"></image>
+      </view>
+    </view>
+	<van-divider contentPosition="center">报修进度</van-divider>
+	<view class="other">
+    <van-steps
+    steps="{{ steps }}"
+    active="{{ active }}"
+    direction="vertical"
+    active-color="#ee0a24"
+  />
+	</view>
+  <view class="problem-desc"><text>若问题紧急，可联系报修专员</text></view>
+  <view class="button-sp-area">
+      <button type="warn" size="mini" open-type="contact"><i class="fa fa-handshake-o fa" style="color:#FFFFFF;"> 联系专员</i></button>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-empty": "../../vant/empty/index"
+  },
+  "navigationBarTitleText": "物资申领审批"
+}

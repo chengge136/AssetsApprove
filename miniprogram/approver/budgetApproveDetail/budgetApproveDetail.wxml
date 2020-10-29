@@ -1,0 +1,52 @@
+<view class="title">
+
+	<view class="status"><text>等待审批</text></view>
+	<view>
+		<text>请查阅申请清单，再决定同意申领或拒绝</text>
+	</view>
+
+</view>
+
+
+
+<view class="div">
+
+	<view class="userinfo">
+		<view><text>提交人：</text>{{requestor}}</view>
+		<view><text>所在部门：</text>{{dept}}</view>
+    <view><text>提交时间：</text>{{ctime}}</view>
+	</view>
+
+	<van-divider contentPosition="center">预算清单</van-divider>
+
+	<view wx:for="{{itemsinfo}}" wx:key="index">
+		<view class="menu_item"><text>{{item.name}}</text> <text>x</text> <text>{{item.number}}</text></view>
+	</view>
+
+	<van-divider contentPosition="center">审批流程</van-divider>
+	<van-steps
+  steps="{{ steps }}"
+  active="1"
+  active-icon="success"
+  active-color="#38f"
+  direction="vertical"
+/>
+  
+</view>
+
+<view class="div">
+<view>
+	<view class="problem-desc"><text>拒绝原因</text></view>
+	<textarea class="textarea-bg" maxlength="200" placeholder="填写拒绝的理由" bindinput="getDataBindTap" />
+</view>
+
+
+<view class="buttongroup">
+<view class="button2">
+<button type="warn" size="{{default}}" disabled="{{disabled}}" bindtap="reject"> 拒绝申请 </button>
+</view>
+<view class="button2">
+<button type="primary" size="{{default}}" disabled="{{disabled}}" bindtap="approve"> 同意申请 </button>
+</view>
+</view>
+</view>

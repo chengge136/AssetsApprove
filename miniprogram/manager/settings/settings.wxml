@@ -15,6 +15,10 @@
   <view><text>... </text></view>
   </view>
 
+  <view class="button" bindtap="assetManage">
+  <view><i class="fa fa-cubes fa"></i><text>  物资管理</text></view>
+  <view><text>... </text></view>
+  </view>
 
 
 

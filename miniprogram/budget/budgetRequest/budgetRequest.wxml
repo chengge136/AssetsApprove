@@ -1,0 +1,69 @@
+<van-tabs animated>
+	<van-tab title="资产预算" name="a">
+    <van-notice-bar
+  left-icon="volume-o"
+	color="#FFFFFF"
+	backgroundColor="#78B6F1"
+  text="全选或勾选需要的固定资产，填入预算数量并提交；超出预算或未提交本年度的资产预算，所在部门员工申请时需要特批"
+/>
+<van-cell-group>
+  <van-field  value="{{ deptHan }}" label="所在部门" disabled/>
+  <van-field  value="{{ username }}" label="提交人" disabled/>
+</van-cell-group>
+
+
+		<view class="title_a" style="background-color: #5579ED;">
+			<view><text>资产名称</text></view>
+			<view><text>预算数量</text></view>
+		</view>
+
+		<view class="chooseAll">
+		 <checkbox-group bindchange="checkAll">
+ 		 <label><checkbox value="cb"/>全选</label>
+			</checkbox-group>
+		</view>
+		
+    <view>
+		<view wx:for="{{assets}}" wx:key="index">
+			<view class="line_1">
+				<checkbox-group bindchange="checkboxChange" data-name="{{item.name}}">
+					<label><view><checkbox value="{{item._id}}" checked="{{item.checked}}" />{{item.name}}</view></label>
+				</checkbox-group>
+				<view><input value="{{item.quantity}}" bindinput="bindKeyInput" data-name="{{item.name}}" class="weui-input" maxlength="3" type="number" placeholder="{{item.name}} 的预算" /></view>
+			</view>
+		</view>
+    </view>
+  <view>
+    <button type="primary" size="{{default}}" disabled="{{submited}}" bindtap="submitBudget"> 提交 </button>
+</view>
+	</van-tab>
+	<van-tab title="提交记录" name="b">
+		<view class="record" wx:for="{{budgetorders}}" wx:key="index">
+			<view class="re_item"><text>年份与状态</text></view>
+
+			<view class="space_between">
+				<view><text>{{item.activeYear}} 年</text></view>
+				<view wx:if="{{item.status=='1'}}" class="padding"><text >待部门领导审批</text></view>
+				<view wx:if="{{item.status=='2'}}" class="approve"><text >待综合办综合员审批</text></view>
+				<view wx:if="{{item.status=='3'}}" class="complete"><text >已激活</text></view>
+				<view wx:if="{{item.status=='-1'}}" class="reject"><text >被拒绝</text></view>
+			</view>
+
+
+			<view class="re_item">
+				<van-divider />
+			</view>
+			<view class="re_item"><text>提交时间：</text>{{item.ctime}}</view>
+			<view class="re_item"><text>提交人：</text>{{item.createdby}}</view>
+			<view class="re_item"><text>所在部门：</text>{{item.dept}}</view>
+			<view class="re_item" wx:if="{{item.status=='-1'}}"><text>拒绝原因：</text><text style="color:#FF0000;">{{item.comment}}</text></view>
+			<view class="re_item"><text>固定资产名称 - 预算数量</text></view>
+			<view><textarea auto-height="true" disabled="true" maxlength="-1" value="{{item.budgetDetails}}" /></view>
+			<view wx:if="{{item.status=='1'}}"><button size="mini" type="default" data-name="shareBtn" open-type="share">点击转发给部门领导审批</button> </view>
+			<view wx:if="{{item.status=='2'}}"><button size="mini" type="default" data-name="shareBtn" open-type="share">点击转发给综合办综合员审批</button> </view>
+
+</view>
+
+  </van-tab>
+</van-tabs>
+<van-notify id="van-notify" />

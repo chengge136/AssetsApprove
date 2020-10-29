@@ -3,12 +3,8 @@
 <view><text>资产领取申请</text></view>
 <view class="logo"><i class="fa fa-shopping-cart fa-3x" style="color:#3175FF;"></i></view>
 </view>
-<view class="item" bindtap="requestBudget">
-<view><text>资产预算申请</text></view>
-<view class="logo"><i class="fa fa-tasks fa-3x" style="color:#00B79E;"></i></view>
-</view>
 <view class="item" bindtap="fixReport">
-<view><text>资产维修汇报</text></view>
+<view><text>资产维修上报</text></view>
 <view class="logo"><i class="fa fa-wrench fa-3x" style="color:#D41650;"></i></view>
 </view>
 <view class="item" bindtap="userCenter">
@@ -26,6 +22,11 @@
     <view class="comment">
       <view class="title"><text>如何申请各类资产</text></view>
       <view class="content"><text>用户登录后，进入资产领取申请，选择自己需要的资产，填写必要数据并提交。</text></view>    
+    </view>
+
+    <view class="comment">
+      <view class="title"><text>如何设备报修</text></view>
+      <view class="content"><text>用户登录后，进入资产维修上报，填写必要的数据并提交。</text></view>    
     </view>
 
     <view class="comment">

@@ -7,11 +7,11 @@
   <view class="login-from">
 
     <view class="myno">
-      <input class="weui-input" name="no" bindinput="noinput" value='{{no}}' placeholder="请输入手机号" />
+      <input class="weui-input" type="number" name="no" bindinput="noinput" value='{{no}}' placeholder="请输入手机号" />
     </view>
 
     <view class="mypwd">
-      <input class="weui-input" type="password" name="pwd" bindinput="pwdinput" placeholder="请输入密码" value='{{pwd}}' />
+      <input class="weui-input" password type="number" name="pwd" bindinput="pwdinput" placeholder="请输入密码" value='{{pwd}}' />
     </view>
 
 

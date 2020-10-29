@@ -1,0 +1,113 @@
+<view style="margin-top:20rpx;">
+	<view style="margin-bottom:20rpx;">
+		<van-nav-bar title="员工管理" left-text="返回" right-text="添加员工" left-arrow bind:click-left="onClickLeft" bind:click-right="onClickRight" />
+	</view>
+	<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+		<van-collapse-item title="部门综合员（预算申请）" name="1">
+			<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='4'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+		<van-collapse-item title="维修专员" name="2">
+
+		<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='3'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+		<van-collapse-item title="综合办综合员（系统admin）" name="3">
+
+			<van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='0'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+
+		</van-collapse-item>
+
+<van-divider
+  contentPosition="center"
+  customStyle="color: #1989fa; border-color: #1989fa; font-size: 16px;"
+>
+  物资申领的审批者
+</van-divider>
+
+    <van-collapse-item title="部门领导" name="4">
+  <van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='2' && item.approver=='1'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+</van-collapse-item>
+
+<van-collapse-item title="综合办主任" name="5">
+  <van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='2' && item.approver=='2'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+</van-collapse-item>
+
+<van-collapse-item title="物资部主任" name="6">
+  <van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='2' && item.approver=='3'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+</van-collapse-item>
+
+<van-collapse-item title="分部分管领导" name="7">
+  <van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='2' && item.approver=='4'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+</van-collapse-item>
+
+<van-collapse-item title="分部主要负责人" name="8">
+  <van-grid column-num="5">
+      <view class="item" wx:for="{{emplists}}" wx:key="index">
+        <navigator wx:if="{{item.roletype=='2' && item.approver=='5'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+          <van-grid-item icon="photo-o" use-slot>
+            <text style="text-align:center;">{{item.name}}</text>
+          </van-grid-item>
+        </navigator>
+      </view>
+    </van-grid>
+</van-collapse-item>
+
+	</van-collapse>
+</view>

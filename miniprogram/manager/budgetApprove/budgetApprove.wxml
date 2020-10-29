@@ -1,0 +1,28 @@
+
+	<view wx:if='{{budgetRequests.length==0}}'>
+	<van-empty image="search" description="没有需要你审批的预算申请" />
+</view>
+<view wx:else>
+	<view style="margin-top:30rpx;">
+		<view wx:for="{{budgetRequests}}" wx:key="index" style="margin-top:20rpx;">
+			<navigator url="../budgetApproveDetail/budgetApproveDetail?_id={{item._id}}">
+				<view class="title" style="background-color: #FF7400;">
+					<view><i class="fa fa-graduation-cap fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
+					<view><text>待审批</text></view>
+				</view>
+				<view class="neworder" style="background-color: #FFB273;">
+					<view class="left">
+						<text class="label">预算资产-数量：</text><text class="content">{{item.budgetDetails}}</text>
+					</view>
+					<view class="left">
+						<text class="label">提交人：</text><text class="content">{{item.createdby}}</text>
+					</view>
+        	<view class="left">
+						<text class="label">申请部门：</text><text class="content">{{item.dept}}</text>
+					</view>
+				</view>
+			</navigator>
+		</view>
+	</view>
+</view>
+

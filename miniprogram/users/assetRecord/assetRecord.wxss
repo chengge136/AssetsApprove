@@ -40,7 +40,6 @@
   justify-content: space-between; /* 在成员元素之间留空白 */
   margin: 0rpx 10rpx 20rpx 10rpx;
   background-color: #EFFFD3;
-  height: 120rpx;
   border-bottom-right-radius:15rpx;
   border-bottom-left-radius:15rpx;
 }

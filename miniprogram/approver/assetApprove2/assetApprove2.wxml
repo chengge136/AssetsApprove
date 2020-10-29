@@ -1,0 +1,24 @@
+
+<view wx:if='{{pendingOrders.length==0}}'>
+	<van-empty image="search" description="没有需要你审批的申请单" />
+</view>
+<view wx:else>
+	<view style="margin-top:30rpx;">
+		<view wx:for="{{pendingOrders}}" wx:key="index" style="margin-top:20rpx;">
+			<navigator url="../assetApproveDetail/assetApproveDetail?_id={{item._id}}&assettype={{item.assettype}}&curnodeid={{item.curnodeid}}">
+				<view class="title_a">
+					<view><i class="fa fa-graduation-cap fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
+					<view><text>待审批</text></view>
+				</view>
+				<view class="neworder">
+					<view class="left" style="font-size:30rpx;color:#A6A4A4">
+						<text>申领的物资：{{item.about}}</text>
+					</view>
+					<view class="left" style="font-size:30rpx;color:#A6A4A4">
+						<text>申请人：{{item.requestor}}</text>
+					</view>
+				</view>
+			</navigator>
+		</view>
+	</view>
+</view>

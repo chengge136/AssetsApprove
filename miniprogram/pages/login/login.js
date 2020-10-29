@@ -63,6 +63,7 @@ Page({
               success: function (res) {
                 var userDetail = wx.getStorageSync('userDetail');
                 console.log('用户类型:', userDetail.roletype);
+                console.log('dept:', userDetail.dept);
                 if (userDetail.roletype == '0') {
                   wx.redirectTo({
                     url: '../../manager/index/index'
@@ -72,16 +73,23 @@ Page({
                     url: '../../users/userIndex/userIndex'
                   })
                 } else if (userDetail.roletype == '2'){
-                  wx.showToast({
-                    title: '审批页面开发中',
-                  })
+                  if(userDetail.approver=='1'){
+                    wx.redirectTo({
+                      url: '../../approver/assetApprove1/assetApprove1'//部门领导只针对同一部门的申请，所以页面和下面的不一样
+                    })
+                  }else{
+                    wx.redirectTo({
+                      url: '../../approver/assetApprove2/assetApprove2' //其他审批者可审批自己角色的申请单
+                    })
+                  }
+
                 } else if (userDetail.roletype == '3'){
-                  wx.showToast({
-                    title: '报修管理页面开发中',
-                  })
-                } else if (userDetail.usertype == '4') {
                   wx.redirectTo({
-                    url: '../../users/userIndex/userIndex'
+                    url: '../../repaire/assetFix/assetFix'
+                  })
+                } else if (userDetail.roletype == '4') {
+                  wx.redirectTo({
+                    url: '../../budget/budgetRequest/budgetRequest'
                   })
                 }
                 

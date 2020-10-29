@@ -34,13 +34,6 @@ Page({
       url: '../requestAsset/requestAsset',
     })
   },
-  requestBudget: function () {
-    wx.showToast({
-      title: '预算申请模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
   fixReport: function () {
     wx.navigateTo({
       url: '../assetFixReport/assetFixReport',

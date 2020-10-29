@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-empty": "../../vant/empty/index"
+  },
+  "navigationBarTitleText": "资产维修列表"
+}
