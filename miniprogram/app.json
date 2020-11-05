@@ -28,6 +28,8 @@
     "manager/approvalRouting/approvalRouting",
     "manager/budgetApprove/budgetApprove",
     "manager/budgetApproveDetail/budgetApproveDetail",
+    "manager/assetRecords/assetRecords",
+    "manager/assetFixRecords/assetFixRecords",
     "approver/assetApprove1/assetApprove1",
     "approver/assetApprove2/assetApprove2",
     "approver/assetApproveDetail/assetApproveDetail",

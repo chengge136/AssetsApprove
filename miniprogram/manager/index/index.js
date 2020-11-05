@@ -16,49 +16,25 @@ Page({
     
 
   },
-  requestRecords: function () {
-    wx.showToast({
-      title: '审批模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
   budgetApprove: function () {
     wx.navigateTo({
       url: '../budgetApprove/budgetApprove',
     })
   },
-  employeeManage: function () {
-    wx.showToast({
-      title: '人员管理模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
-  accessHub: function () {
-    wx.showToast({
-      title: '权限模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
-  tableQuery: function () {
-    wx.showToast({
-      title: '报表模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
-  dataAnalyze: function () {
-    wx.showToast({
-      title: '数据分析模块开发中',
-      icon: 'success',
-      duration: 2000
-    })
-  },
+
   settings: function () {
     wx.navigateTo({
       url: '../settings/settings',
+    })
+  },
+  assetRecords: function () {
+    wx.navigateTo({
+      url: '../assetRecords/assetRecords',
+    })
+  },
+  assetFixRecords: function () {
+    wx.navigateTo({
+      url: '../assetFixRecords/assetFixRecords',
     })
   },
   /**

@@ -1,0 +1,11 @@
+<view class="currentYear">
+	<van-field value="{{ currentYear }}年度" required center label="报表的年份" use-button-slot disabled>
+		<van-button slot="button" size="small" type="primary" bind:click="getExcel">点击生成excel</van-button>
+	</van-field>
+</view>
+
+<view>
+	<textarea class="textarea-link" placeholder="excel的下载链接" maxlength="200" value="{{fileUrl}}" disabled="true" />
+	</view>
+
+    <button type="primary" bindtap="copyFileUrl">复制表格的下载链接</button>

@@ -1,24 +1,21 @@
 <view class="action">
-<view class="item" bindtap="requestRecords">
-<view><text>申请记录</text></view>
-<view class="logo"><i class="fa fa-history fa-3x" style="color:#95EC69;"></i></view>
-</view>
 <view class="item" bindtap="budgetApprove">
 <view><text>预算审批</text></view>
 <view class="logo"><i class="fa fa-tasks fa-3x" style="color:#FA9D3B;"></i></view>
-</view>
-<view class="item" bindtap="tableQuery">
-<view><text>报表查看</text></view>
-<view class="logo"><i class="fa fa-table fa-3x" style="color:#7DD1CA;"></i></view>
-</view>
-<view class="item" bindtap="dataAnalyze">
-<view><text>数据分析</text></view>
-<view class="logo"><i class="fa fa-line-chart fa-3x" style="color:#F9957D;"></i></view>
 </view>
 <view class="item" bindtap="settings">
 <view><text>设置</text></view>
 <view class="logo"><i class="fa fa-cog fa-3x" style="color:#576B95;"></i></view>
 </view>
+<view class="item" bindtap="assetRecords">
+<view><text>物资申领报表</text></view>
+<view class="logo"><i class="fa fa-table fa-3x" style="color:#7DD1CA;"></i></view>
+</view>
+<view class="item" bindtap="assetFixRecords">
+<view><text>物品报修报表</text></view>
+<view class="logo"><i class="fa fa-wrench fa-3x" style="color:#F9957D;"></i></view>
+</view>
+
 
 </view>
 

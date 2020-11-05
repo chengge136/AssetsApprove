@@ -52,12 +52,12 @@ Page({
     //获取此类别的审批流
     db.collection('zh_approval_routing').where(
       {
-        type: _.eq(parseInt(arr[0].type))
+        type: _.eq(arr[0].type)
       }
     ).get({
       success: function (res) {
         var appr_setting=res.data[0].appr_setting;
-        console.log(appr_setting,appr_setting[0]);
+        console.log('审批设置',appr_setting,appr_setting[0]);
 
         that.setData({
           required_node: appr_setting,

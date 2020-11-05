@@ -109,9 +109,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "repaire/assetFix/assetFix",
-					"pathName": "repaire/assetFix/assetFix",
+					"id": 8,
+					"name": "manager/assetRecords/assetRecords",
+					"pathName": "manager/assetRecords/assetRecords",
 					"query": "",
 					"scene": null
 				},

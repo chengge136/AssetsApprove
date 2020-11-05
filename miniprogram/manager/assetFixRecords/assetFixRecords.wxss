@@ -1,0 +1,28 @@
+.title{
+  margin: 20rpx;
+  color:#7B7B7B;
+  font-size: 15pt;
+}
+
+.title1{
+  margin: 20rpx;
+  color:#7B7B7B;
+  font-size: 12pt;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.currentYear{
+  margin-top: 20rpx;
+}
+
+.textarea-link{
+  padding: 10rpx;
+  margin: 20rpx;
+  font-size: 12pt;
+  color:#ACACAC;
+  border: 1px solid #ACACAC;
+  height: 50px;
+  width: 90%;
+}
