@@ -1,0 +1,65 @@
+/**index.wxss**/
+.container {
+  position: absolute;
+  top: 90rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+
+ec-canvas {
+  width: 100%;
+  height: 80%;
+}
+
+
+/* 导航栏布局相关 */
+.navbar {
+  width: 100%;
+  height: 90rpx;
+  /* 文本不换行 */
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  background: #fff;
+  align-items: center;
+  /* 固定在顶部 */
+  position: fixed;
+  left: 0rpx;
+  top: 10rpx;
+}
+
+.nav-item {
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 100%;
+  display: inline-block;
+  /* 普通文字大小 */
+  font-size: 10pt;
+}
+
+.nav-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 4rpx;
+  box-sizing: border-box;
+}
+
+.tab-on {
+  color: #37a2da;
+  /* 选中放大 */
+  font-size: 14pt;
+  font-weight: bold;
+  border-bottom: 4rpx solid #37a2da;
+}

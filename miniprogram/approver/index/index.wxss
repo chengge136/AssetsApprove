@@ -1,0 +1,100 @@
+page {
+  background-color:#F8F8F8; 
+}
+
+.role{
+  font-size:30rpx;
+  color:#A6A4A4;
+}
+
+.personalMe{
+  display:flex; /* 伸缩盒子，调整其子元素在不同的屏幕大小中能够用最适合的方法填充合适的空间 */
+  flex-wrap:wrap; /* 换行 */
+  padding: 5rpx; /* 边距 */
+  justify-content: space-between; /* 在成员元素之间留空白 */
+  margin-bottom: 20rpx;
+  height: 220rpx;
+  background-color:#FFFFFE;
+  border-bottom: 1px solid #D2D2D2;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+.personalMe>.left{
+ display:flex;
+ flex-direction:column;
+ justify-content: space-between;
+ padding:10rpx;
+ margin-left:30rpx; 
+}
+.personalMe>.right{
+ padding-right:20rpx;
+}
+
+
+.action {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20rpx;
+  margin: 20rpx;
+
+}
+.row{
+  margin-bottom: 20rpx;
+
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 250rpx;
+  width: 250rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #D2D2D2;
+  background-color:#FFFFFE;
+  padding: 30rpx;
+
+}
+
+.name{
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+
+.item text{
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.item i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.info{
+  background-color:#FFFFFE;
+  margin: 20rpx;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx;
+  align-items: left;
+  margin: 20rpx;
+  border-bottom:2px solid #F5F5F5;
+}
+
+.title text {
+  font-size: 12pt;
+}
+
+.content text {
+  margin-top: 10rpx;
+  font-size: 10pt;
+  color: #7B7B7B;
+}

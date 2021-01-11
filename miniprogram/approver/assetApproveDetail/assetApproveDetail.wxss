@@ -3,21 +3,17 @@ page{
 }
 .title{
   display:flex;
-  flex-direction: column;
+  justify-content: center;
   align-items:center;
   background-color: #FFFFFE; 
   margin: 0rpx 20rpx 20rpx 20rpx;
   height: 130rpx;
+  font-size:16pt;
+  font-weight:bold;
+  color:#FFC300;
 
 }
-.status{
-  margin-bottom: 10rpx;
-}
-.status text{
-  font-size:40rpx;
-  font-weight:bold;
-  color:#F2991D;
-}
+
 .div{
   margin: 20rpx;
   background-color:#FFFFFE; 
@@ -26,36 +22,44 @@ page{
 .userinfo{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  font-size: 12pt; 
 }
-.userinfo text{
-  color:#7B7B7B;
+.item{
+  padding: 10rpx;
 }
 
+.item text{
+  font-size: 12pt; 
+  font-weight: bold;
+}
+
+.menu_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F7F7F7;
+  height: 60rpx;
+  padding: 10rpx;
+}
+.menu_title text{
+  font-size: 12pt;  
+  
+}
 .menu_item{
   display: flex;
+  padding: 10rpx;
   justify-content: space-between;
 }
-.other{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 350rpx;
-}
-.buttongroup{
-  display: flex;
-  justify-content:center; 
-  margin: 40rpx 20rpx 10rpx 20rpx;
+.menu_item text{
+  font-size: 14pt;
 }
 
-.button2{
-  width:50%;
-}
+
+
 textarea {
   padding:10rpx;
   width: 600rpx;
   height: 150rpx;
-  margin:20rpx 30rpx;
+  margin:40rpx 30rpx 20rpx 30rpx;
   border: 2px solid #ddd;
 }

@@ -54,7 +54,7 @@ Page({
         that.setData({
           orderid: res.data[0].requestid,
           requestor: res.data[0].createdby,
-          dept:app.returnHanDept(res.data[0].dept),
+          dept:res.data[0].dept,
           itemsinfo: itemsinfo,
           ctime:app.formatDate(new Date(res.data[0].requestid)),
           comment:res.data[0].comment

@@ -30,24 +30,29 @@
     "manager/budgetApproveDetail/budgetApproveDetail",
     "manager/assetRecords/assetRecords",
     "manager/assetFixRecords/assetFixRecords",
-    "approver/assetApprove1/assetApprove1",
+    "approver/index/index",
     "approver/assetApprove2/assetApprove2",
     "approver/assetApproveDetail/assetApproveDetail",
     "approver/budgetApproveDetail/budgetApproveDetail",
     "repaire/assetFix/assetFix",
     "repaire/assetFixDetail/assetFixDetail",
-    "budget/budgetRequest/budgetRequest"
+    "budget/budgetRequest/budgetRequest",
+    "charts/bar/index",
+    "deptmanager/index/index",
+    "deptmanager/assetApprove/assetApprove"
+
+    
 
     
 
     
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTextStyle": "black",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "正好集团莲都分部管家帮",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "正好集团莲都分部管家帮"
   },
   "cloud": true,
   "sitemapLocation": "sitemap.json"

@@ -3,7 +3,11 @@
     "van-submit-bar": "../../vant/submit-bar/index",
     "van-card": "../../vant/card/index",
     "van-button": "../../vant/button/index",
-    "van-field": "../../vant/field/index"
-  }
+    "van-field": "../../vant/field/index",
+    "van-goods-action": "../../vant/goods-action/index",
+    "van-goods-action-icon": "../../vant/goods-action-icon/index",
+    "van-goods-action-button": "../../vant/goods-action-button/index"
+  },
+  "navigationBarTitleText": "确认订单"
   
 }

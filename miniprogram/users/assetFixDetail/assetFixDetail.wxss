@@ -10,6 +10,15 @@ page{
   height: 130rpx;
 
 }
+.item{
+  padding: 10rpx;
+}
+
+.item text{
+  font-size: 12pt; 
+  font-weight: bold;
+}
+
 .status{
   margin-bottom: 10rpx;
 }
@@ -26,9 +35,6 @@ page{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-}
-.userinfo text{
-  color:#7B7B7B;
 }
 
 .menu_item{

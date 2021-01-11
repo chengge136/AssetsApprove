@@ -50,7 +50,7 @@ Page({
 
     that.setData({
       name: userDetail.name,
-      dept:app.returnHanDept(userDetail.dept),
+      dept:userDetail.dept,
       avatarUrl: userInfo.avatarUrl
     })
   },

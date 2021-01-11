@@ -1,39 +1,66 @@
+<view class="personalMe">
+<view class="left">
+<text style="font-size:40rpx;font-weight:bold;">{{name}}</text>
+<text style="font-size:30rpx;color:#A6A4A4">{{dept}}</text>
+<text style="font-size:30rpx;color:#A6A4A4">领东西&报修</text>
+</view>
+
+<view class="right">
+<image src="{{avatarUrl}}" style="width:80px;height:80px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+</view>
+</view>
+
+
 <view class="action">
-<view class="item" bindtap="requestAsset">
-<view><text>资产领取申请</text></view>
-<view class="logo"><i class="fa fa-shopping-cart fa-3x" style="color:#3175FF;"></i></view>
-</view>
-<view class="item" bindtap="fixReport">
-<view><text>资产维修上报</text></view>
-<view class="logo"><i class="fa fa-wrench fa-3x" style="color:#D41650;"></i></view>
-</view>
-<view class="item" bindtap="userCenter">
-<view><text>个人中心</text></view>
-<view class="logo"><i class="fa fa-user fa-3x" style="color:#FF9604;"></i></view>
+
+<view class="item-left" bindtap="requestAsset">
+
+
+<view class="item1">
+
+<view><text>我要领东西</text></view>
+<view><text style="font-size:12pt;font-weight:normal;color:#07c160;">提交申请审批后领取</text></view>
+
+<view><image class="png1" mode="widthFix" src="../../png/shop.png"></image></view>
+
 </view>
 </view>
 
-<view style="color:#FF7211;margin-left:10rpx;">
-  <i class="fa fa-bookmark-o fa"></i>
-  <text style="font-size:32rpx;"> 使用须知</text>
+<view class="item-right">
+<view class="item2" bindtap="assetRequesting">
+<view><text>领取进度</text></view>
+<view><text style="font-size:12pt;font-weight:normal;color:#07c160;">看看审批到哪里了</text></view>
+<view><image class="png2" mode="widthFix" src="../../png/shalou.png"></image></view>
 </view>
 
-<view class="info">
-    <view class="comment">
-      <view class="title"><text>如何申请各类资产</text></view>
-      <view class="content"><text>用户登录后，进入资产领取申请，选择自己需要的资产，填写必要数据并提交。</text></view>    
-    </view>
-
-    <view class="comment">
-      <view class="title"><text>如何设备报修</text></view>
-      <view class="content"><text>用户登录后，进入资产维修上报，填写必要的数据并提交。</text></view>    
-    </view>
-
-    <view class="comment">
-      <view class="title"><text>如何跟进自己的申请</text></view>
-      <view class="content"><text>请在个人中心，查看自己的申请进度。</text></view>    
-    </view>
+<view class="item2" bindtap="fixReport">
+<view><text>我要报修</text></view>
+<view><text style="font-size:12pt;font-weight:normal;color:#07c160;">点我进行报修吧</text></view>
+<view><image class="png2" mode="widthFix" src="../../png/baoxiu.png"></image></view>
+</view>
+</view>
 
 </view>
 
+<view class="item-center">
 
+<view class="item3" bindtap="fixReporting">
+<view><text>报修进度</text></view>
+<view><i class="fa fa-chevron-circle-right fa-2x" style="color:#1485EE;"></i></view>
+
+</view>
+
+</view>
+<view  style="margin-bottom:30rpx;">
+<van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+  <van-collapse-item title="申领物资说明" name="1">
+    选取你所需要的物资，确认无误后提交申请，审批完毕后得到通知即可领取。
+  </van-collapse-item>
+  <van-collapse-item title="报修说明" name="2">
+    问题描述和照片二选一提交，专员得到通知后会尽快安排上面维修。
+  </van-collapse-item>
+  <van-collapse-item title="查看进度说明" name="3">
+    用户可查看本次申请的进度，还需要谁的审批。
+  </van-collapse-item>
+</van-collapse>
+ </view>

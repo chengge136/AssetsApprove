@@ -38,6 +38,14 @@ App({
     var second = now.getSeconds();
     return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
   },
+  formatmd: function (now) {
+
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var date = now.getDate();
+    return year + "/" + month + "/" + date;
+  },
+
   getDate: function (now) {
 
     var year = now.getFullYear();
@@ -56,24 +64,6 @@ App({
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 
     return Y + '年' + M + '月' + D + '日'  
-  },
-  returnHanAssetType:function(type){
-    if(type=='1'){
-      return '办公用品';
-    }else if(type=='2'){
-      return '低值易耗品';
-    }else{
-      return '固定资产';
-    }
-  },
-  returnHanDept:function(type){
-    if(type=='1'){
-      return '行政部';
-    }else if(type=='2'){
-      return '维护部';
-    }else{
-      return '售后部';
-    }
   },
 
   getApprStepByNodeid:function(curnodeid){

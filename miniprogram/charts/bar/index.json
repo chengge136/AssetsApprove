@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText": "本年度前五申请数量"
+}

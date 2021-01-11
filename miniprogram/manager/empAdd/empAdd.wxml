@@ -3,9 +3,9 @@
 <view>
 <van-radio-group value="{{ dept }}" bind:change="selectDept" class="radiogroup">
  <van-row>
-  <van-col span="8"><van-radio name="1">行政部</van-radio></van-col>
-  <van-col span="8"><van-radio name="2">维护部</van-radio></van-col>
-  <van-col span="8"><van-radio name="3">售后部</van-radio></van-col>
+  <van-col span="8"><van-radio name="行政部">行政部</van-radio></van-col>
+  <van-col span="8"><van-radio name="维护部">维护部</van-radio></van-col>
+  <van-col span="8"><van-radio name="售后部">售后部</van-radio></van-col>
 </van-row>
 </van-radio-group>
 </view>

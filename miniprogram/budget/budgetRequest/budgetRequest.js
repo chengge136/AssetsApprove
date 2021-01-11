@@ -47,7 +47,7 @@ Page({
         that.setData({
           assets: assets,
           username:userDetail.name,
-          deptHan:app.returnHanDept(userDetail.dept),
+          deptHan:userDetail.dept,
           dept:userDetail.dept
         })
       }
@@ -63,7 +63,7 @@ Page({
         console.log(res.data);
         for (var index in res.data) {
           res.data[index].ctime = app.formatDate(new Date(res.data[index].requestid));
-          res.data[index].dept = app.returnHanDept(res.data[index].dept);
+          res.data[index].dept = app.res.data[index].dept;
 
         }
         that.setData({

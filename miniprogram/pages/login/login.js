@@ -20,7 +20,7 @@ Page({
    */
   onLoad: function (options) {
     var userInfo = wx.getStorageSync('userInfo');
-    console.log('login page of the nickName:', userInfo.nickName)
+    console.log('login page of the openid:', userInfo.openid)
     this.setData({
       openid: userInfo.openid,
       avatarUrl:userInfo.avatarUrl
@@ -75,11 +75,11 @@ Page({
                 } else if (userDetail.roletype == '2'){
                   if(userDetail.approver=='1'){
                     wx.redirectTo({
-                      url: '../../approver/assetApprove1/assetApprove1'//部门领导只针对同一部门的申请，所以页面和下面的不一样
+                      url: '../../deptmanager/index/index'//部门领导
                     })
                   }else{
                     wx.redirectTo({
-                      url: '../../approver/assetApprove2/assetApprove2' //其他审批者可审批自己角色的申请单
+                      url: '../../approver/index/index' //其他审批者可审批自己角色的申请单
                     })
                   }
 

@@ -38,7 +38,7 @@ Page({
         that.setData({
           orderid: res.data[0].orderid,
           requestor: res.data[0].requestor,
-          dept:app.returnHanDept(res.data[0].dept),
+          dept:res.data[0].dept,
           assetname:res.data[0].assetname,
           addr:res.data[0].addr,
           user: res.data[0].user,

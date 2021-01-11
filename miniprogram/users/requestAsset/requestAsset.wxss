@@ -1,58 +1,109 @@
-
 page{
-  padding: 10rpx;
+  width:100%;
+  height:100%;
+  background-color:#F8F8F8; 
 }
-
-
-
- /* 首页导航 */
-.nav{
-  white-space: nowrap;
-  padding:5rpx 0;
-  margin-bottom:20rpx;
-
+.container{
+  display: flex;
+  flex-direction: row;
+  height:100%;
+}
+.left{
+  width:100px;
+  height:80%;
+}
+.left scroll-view{
+  height:100%;
 }
 .nav_item{
-  /* 一行显示 */
-  display: inline-block;
-  padding: 20rpx 45rpx;
-  font-size: 35rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 120rpx;
+  padding:10rpx;
+  color:#7B7B7B;
+  font-size: 10pt;
+  background-color:#F6F6F6;
 }
+
+
 .nav_item.active{
-  border-bottom: 5rpx solid #FF88AB;
-  background-color: #FEF4E9;
+  background-color:#fff;
+  color:#181818;
+  font-weight: bold;
 }
 
- .discount{
-   margin-top:20rpx; 
-   margin-bottom:20rpx; 
- }
-
-.dis_bottom{
-   display:flex; 
-   flex-wrap:wrap; /* 换行 */
-   padding: 5rpx; /* 边距 */
-   height: 280rpx;
-   justify-content: space-between; /* 在成员元素之间留空白 */
-   border: 2px solid #D8D8D8;
+.nav_item.active i{
+  
+  color:#FFC300;
   
 }
-.dis_bottom image{
-  width: 30%;
-  margin-left: 10rpx;
-  margin-top: 10rpx;
+
+.right{
+  flex:1;
+  height:100%;
+}
+.right scroll-view{
+  height:100%;
+}
+.title{
+  display: flex;
+  height:30px;
+  font-size: 12pt;
+  color:#7B7B7B;
+  background-color: #fff;
+  padding:10px;
+  justify-content: center;
 }
 
-.text1{
-  flex-direction:column;
+
+/* 隐藏滚动条的 */
+::-webkit-scrollbar{
+  width:0;
+  height:0;
+  color:transparent;
 }
 
-.text2{
-  flex-direction:column;
-  position: relative;
-  right: 15rpx;
+.item{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  background-color:#fff;
+  border-bottom: 1px solid #D2D2D2;
+  margin: 10rpx;
+  border-radius: 5px;
+
+}
+.assetimg{
+  width: 250rpx;
+  height: 200rpx;
+  border-radius: 5px;
+
 }
 
-.item text{
-  font-size: 30rpx;
+.itemname{
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items:center;
+  padding: 40rpx;
+
+}
+.itemname text{
+  font-size: 14pt;
+}
+
+.action{
+  width: 200rpx;
+  margin-right: 30rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.action_item{
+  padding-left: 20rpx;
 }

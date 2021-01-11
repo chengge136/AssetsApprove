@@ -6,28 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    name:'',
+    dept:'',
+    approver:'',
+    roletype:'',
+    avatarUrl:'',
+    activeName: '1',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    const _ = db.command;
-    db.collection('menu').where(
-      {
-        type: _.eq(2)
-      }
-    ).get({
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          menulists: res.data
-        })
-      }
+    var userDetail = wx.getStorageSync('userDetail');
+    var userInfo = wx.getStorageSync('userInfo');
+    this.setData({
+      name: userDetail.name,
+      dept: userDetail.dept,
+      roletype: userDetail.roletype,
+      avatarUrl: userInfo.avatarUrl
     })
 
+  },
+  onChange(event) {
+    this.setData({
+      activeName: event.detail,
+    });
   },
   requestAsset: function () {
     wx.navigateTo({
@@ -39,11 +43,18 @@ Page({
       url: '../assetFixReport/assetFixReport',
     })
   },
-  userCenter: function () {
+  assetRequesting: function () {
     wx.navigateTo({
-      url: '../userCenter/userCenter',
+      url: '../assetRecord/assetRecord',
     })
   },
+  fixReporting: function () {
+    wx.navigateTo({
+      url: '../fixRecord/fixRecord',
+    })
+  },
+
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成

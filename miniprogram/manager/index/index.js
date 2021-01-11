@@ -27,9 +27,9 @@ Page({
       url: '../settings/settings',
     })
   },
-  assetRecords: function () {
+  assetreport: function () {
     wx.navigateTo({
-      url: '../assetRecords/assetRecords',
+      url: '../../charts/bar/index',
     })
   },
   assetFixRecords: function () {

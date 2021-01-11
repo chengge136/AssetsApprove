@@ -24,12 +24,11 @@
 <view class="div">
 
 	<view class="userinfo">
-		<view>申请人：<text>{{requestor}}</text></view>
-		<view>所在部门：<text>{{dept}}</text></view>
-    <view>维修设备：<text>{{assetname}}</text></view>
-    <view>设备位置：<text>{{addr}}</text></view>
-
-		<view wx:if="{{!user==''}}">使用人：<text>{{user}}</text></view>
+		<view class="item">申请人：<text>{{requestor}} </text></view>
+		<view class="item">所在部门：<text>{{dept}}</text></view>
+		<view class="item">维修设备：<text>{{assetname}}</text></view>
+		<view class="item">设备位置：<text>{{addr}}</text></view>
+		<view class="item" wx:if="{{!user==''}}">使用人：<text>{{user}}</text></view>
 	</view>
 
 	<van-divider contentPosition="center">设备问题描述</van-divider>

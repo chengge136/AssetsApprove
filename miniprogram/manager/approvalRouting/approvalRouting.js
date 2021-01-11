@@ -56,7 +56,7 @@ Page({
     const roles2 = this.data.roles2;
     const roles3 = this.data.roles3;
     const roles4 = this.data.roles4;
-    db.collection('zh_approval_routing').orderBy('type', 'asc').get().then(res => {
+    db.collection('zh_approval_routing').orderBy('order', 'asc').get().then(res => {
       var appr_setting1=res.data[0].appr_setting;
       var appr_setting2=res.data[1].appr_setting;
       var appr_setting3=res.data[2].appr_setting;

@@ -1,45 +1,42 @@
-<view class="J-shopping-cart-empty" hidden="{{!isempty}}">
-  <i class="fa fa-shopping-cart fa-5x"></i>
-  <text style='color:black'>还未申请</text>
-  <navigator open-type="navigateBack" url="../userIndex/userIndex">
-    <a class="button-primary">
-      去申请
-    </a>
-  </navigator>
-</view>
+<view wx:if="{{mutiple_selected}}" class="warning">同一批次只可申请一个类别的物资，例如：办公用品和低值易耗品不可以一起申请。请保留一个类别！</view>
 
-<view hidden="{{isempty}}">
-  <view class="item" wx:for="{{carts}}" wx:key="index">
-    <van-card tag="{{tag}}" desc=""  thumb="{{item.imagePath}}">
-    <view slot="title" class="title">
-      {{item.name}}
-    </view>
-    <view slot="num" class="num">
-      <input value="{{item.quantity}}" maxlength="2" bindblur="bindKeyInput" type="number" data-itemname="{{item.name}}" data-itemid="{{item.id}}"/>
-      
-    </view>
-      <view slot="footer">
-        <van-button size="mini" data-id="{{item.id}}" bind:click="add">加一个</van-button>
-        <van-button size="mini" data-id="{{item.id}}" bind:click="remove">删除</van-button>
+<view wx:for="{{carts}}" wx:key="index">	
+        <view class="item">
+          <view>
+            <view class="tag">{{item.type}}</view>
+            <image class="assetimg" mode="scaleToFill" src="{{item.img}}">
+          </image>
+          </view>  
+          <view class="itemname">
+            <view><text>{{item.name}}</text></view> 
+            <view class="action">
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+                <i data-id="{{item.id}}" data-name="{{item.name}}" class="fa fa-minus-circle fa-2x" style="color:#00AF66;" bindtap="deleteNumber"></i>
+            </view>
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+              <text wx:if="{{item.quantity>0}}">{{item.quantity}}</text>
+            </view>
+             <view class="action_item">
+                <i data-id="{{item.id}}" class="fa fa-plus-circle fa-2x" style="color:#00AF66;" bindtap="addNumber"></i>
+            </view>
+            </view>
+          </view> 
+        </view> 	
       </view>
-      
-    </van-card>
-  </view>
-<view style="margin-bottom:80rpx;">
+
+<view style="margin-bottom:100rpx;">
 <van-cell-group>
   <van-field disabled value="{{ requestor }}" label="申请人"/>
   <van-field disabled value="{{ dept }}" label="使用部门"/>
-  <view wx:if="{{assettype=='1'}}">
+  <view wx:if="{{assettype=='办公用品'}}">
     <van-field required clearable value="{{ user }}" placeholder="填写领用人" label="领用人" bind:change="inputUser" />
   </view>
   <van-field clearable value="{{ memo }}" placeholder="填写备注信息" label="备注" bind:change="inputMemo"/>
 </van-cell-group>
 </view>
 
-  <view class="submit">
-
-    <van-button icon="star-o" color="linear-gradient(to right, #FF976A, #EE0A24)" round disabled="{{disabled}}" type="info" bindtap="Submit">提交申请</van-button>
-
-  </view>
-
+<view>
+<van-goods-action>
+   <van-goods-action-button disabled="{{mutiple_selected}}" text="提交" type="danger" bind:click="submit" />
+</van-goods-action>
 </view>

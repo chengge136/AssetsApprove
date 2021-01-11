@@ -7,22 +7,25 @@
 <view wx:else>
 	<view style="margin-top:30rpx;">
 		<view wx:for="{{pendingOrders}}" wx:key="index" style="margin-top:20rpx;">
-			<navigator url="../assetApproveDetail/assetApproveDetail?_id={{item._id}}&assettype={{item.assettype}}&curnodeid={{item.curnodeid}}">
-				<view class="title" style="background-color: #37C6C0;">
-					<view><i class="fa fa-graduation-cap fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
+			<navigator url="../../approver/assetApproveDetail/assetApproveDetail?_id={{item._id}}&assettype={{item.assettype}}&curnodeid={{item.curnodeid}}">
+				<view class="title" style="background-color: #10AEFF;">
+					<view><i class="fa fa-clock-o fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
 					<view><text>待审批</text></view>
 				</view>
 				<view class="neworder">
-					<view class="left">
-						<text class="label">申领的物资：</text><text class="content">{{item.about}}</text>
-					</view>
-					<view class="left">
+					<view>
 						<text class="label">申请人：</text><text class="content">{{item.requestor}}</text>
+					</view>
+						<view>
+						<text class="label">所在部门：</text><text>{{item.dept}}</text>
 					</view>
 				</view>
 			</navigator>
 		</view>
 	</view>
+	
+<view class="desc"><text>没有更多了</text></view>
+
 </view>
 </van-tab>
 <van-tab title="固定资产预算审批" name="b">
@@ -33,7 +36,7 @@
 <view wx:else>
 	<view style="margin-top:30rpx;">
 		<view wx:for="{{budgetRequests}}" wx:key="index" style="margin-top:20rpx;">
-			<navigator url="../budgetApproveDetail/budgetApproveDetail?_id={{item._id}}">
+			<navigator url="../budgetApproveDetail/budgetApproveDetail?_id={{item._id}}&dept={{item.dept}}">
 				<view class="title" style="background-color: #FF7400;">
 					<view><i class="fa fa-graduation-cap fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
 					<view><text>待审批</text></view>

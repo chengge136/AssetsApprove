@@ -42,7 +42,7 @@ Page({
         console.log('res',res.data);
         for (var i = 0; i < arr.length; i++) {
           arr[i].ctime = app.formatDate(new Date(arr[i].requestid));
-          arr[i].dept = app.returnHanDept(arr[i].dept);
+          arr[i].dept = arr[i].dept;
         }
         that.setData({
           budgetRequests:arr

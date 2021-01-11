@@ -1,11 +1,31 @@
-<view class="currentYear">
-	<van-field value="{{ currentYear }}年度" required center label="报表的年份" use-button-slot disabled>
-		<van-button slot="button" size="small" type="primary" bind:click="getExcel">点击生成excel</van-button>
+
+<van-tabs active="0">
+  <van-tab title="物资申领数据" name="0">
+  <view class="currentYear">
+	<van-field value="{{ currentYear }}" bind:change="onChange" type="number" maxlength="4" required center label="数据的年份" use-button-slot>
+		<van-button slot="button" size="small" type="primary" bind:click="getGoodsExcel">点击生成excel</van-button>
 	</van-field>
 </view>
 
 <view>
-	<textarea class="textarea-link" placeholder="excel的下载链接" maxlength="200" value="{{fileUrl}}" disabled="true" />
+	<textarea class="textarea-link" placeholder="excel的下载链接" maxlength="200" value="{{goodsUrl}}" disabled="true" />
 	</view>
 
-    <button type="primary" bindtap="copyFileUrl">复制表格的下载链接</button>
+    <button type="primary" bindtap="copyGoodsUrl">复制表格的下载链接</button>
+
+  </van-tab>
+   <van-tab title="报修数据" name="1">
+   <view class="currentYear">
+    <van-field value="{{ currentYear }}" bind:change="onChange" type="number" maxlength="4" required center label="数据的年份" use-button-slot>
+      <van-button slot="button" size="small" type="primary" bind:click="getFixExcel">点击生成excel</van-button>
+    </van-field>
+    </view>
+
+    <view>
+      <textarea class="textarea-link"  placeholder="excel的下载链接" maxlength="200" value="{{fixUrl}}" disabled="true"/> 
+    </view>
+
+    <button type="primary" bindtap="copyFixUrl">复制表格的下载链接</button>
+  </van-tab>
+</van-tabs>
+

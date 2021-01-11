@@ -1,0 +1,43 @@
+<view class="personalMe">
+<view class="left">
+<text style="font-size:40rpx;font-weight:bold;">{{name}}</text>
+<text style="font-size:30rpx;color:#A6A4A4">{{dept}}</text>
+<view wx:if='{{approver==2}}' class="role">
+	综合办主任
+</view>
+<view wx:if='{{approver==3}}' class="role">
+	物资部主任
+</view>
+<view wx:if='{{approver==4}}' class="role">
+	分部分管领导
+</view>
+<view wx:if='{{approver==5}}' class="role">
+	分部主要负责人
+</view>
+
+</view>
+
+<view class="right">
+<image src="{{avatarUrl}}" style="width:80px;height:80px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+</view>
+</view>
+
+<view class="action">
+<view class="row">
+<view class="item" bindtap="managerApprove">
+<view class="name"><text>我要批准</text></view>
+<view><i class="fa fa-tasks fa-4x" style="color:#FA9D3B;"></i></view>
+</view>
+</view>
+
+<view>
+<view class="item" bindtap="assetreport">
+<view class="name"><text>查看图表</text></view>
+<view class="logo"><i class="fa fa-bar-chart fa-4x" style="color:#7DD1CA;"></i></view>
+</view>
+</view>
+
+</view>
+
+
+

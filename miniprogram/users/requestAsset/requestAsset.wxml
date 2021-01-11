@@ -1,60 +1,108 @@
-  <van-notice-bar
-  left-icon="volume-o"
-  text="选择你要的物资提交申请，若长时间未审批，请在个人中心查看申请单，提醒负责人及时审批。"
-/>
+<view class='container'>
+<view class='left'>
+  <scroll-view class='leftScroll' scroll-y>
+    <block wx:for="{{list}}"  wx:key="index">
+      <view bindtap='clickScroll' data-index="{{index}}" data-id="{{item.id}}" class="nav_item {{index===currentIndexNav?'active':''}}">
+        <view>{{item.name}}</view>
+        <view><i class="{{item.icon}}"></i></view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class='right'>
+  <scroll-view class='rightScroll' scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <view id="list1" class="title">经常领取</view>
+     <view wx:for="{{assetlists}}" wx:key="index">	
+        <view wx:if="{{item.popular}}" class="item">
+          <view><image class="assetimg" mode="scaleToFill" src="{{item.img}}"></image></view>  
+          <view class="itemname">
+            <view><text>{{item.name}}</text></view> 
+            <view class="action">
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+                <i data-index="{{index}}" class="fa fa-minus-circle fa-2x" style="color:#00AF66;" bindtap="deleteNumber"></i>
+            </view>
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+              <text wx:if="{{item.quantity>0}}">{{item.quantity}}</text>
+            </view>
+             <view class="action_item">
+                <i data-index="{{index}}" class="fa fa-plus-circle fa-2x" style="color:#00AF66;" bindtap="addNumber"></i>
+            </view>
+            </view>
+          </view> 
+        </view> 	
+      </view>
+     
+    <view id="list2" class="title">日常办公用品</view>
+      <view wx:for="{{assetlists}}" wx:key="index">	
+        <view wx:if="{{item.type=='办公用品'}}" class="item">
+          <view><image class="assetimg" mode="scaleToFill" src="{{item.img}}"></image></view>  
+          <view class="itemname">
+            <view><text>{{item.name}}</text></view> 
+            <view class="action">
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+                <i data-index="{{index}}" class="fa fa-minus-circle fa-2x" style="color:#00AF66;" bindtap="deleteNumber"></i>
+            </view>
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+              <text wx:if="{{item.quantity>0}}">{{item.quantity}}</text>
+            </view>
+             <view class="action_item">
+                <i data-index="{{index}}" class="fa fa-plus-circle fa-2x" style="color:#00AF66;" bindtap="addNumber"></i>
+            </view>
+            </view>
+          </view> 
+        </view> 	
+      </view>
 
-  <!--首页导航-->
-  <view class="nav_wrap">
-    <scroll-view class="nav" scroll-x>
-      <view bindtap="activeNav" data-index="{{index}}" class="nav_item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}" wx:key="index">
-        {{item}}
+    <view id="list3" class="title">低值易耗品</view>
+    <view wx:for="{{assetlists}}" wx:key="index">	
+        <view wx:if="{{item.type=='低值易耗品'}}" class="item">
+          <view><image class="assetimg" mode="scaleToFill" src="{{item.img}}"></image></view>  
+          <view class="itemname">
+            <view><text>{{item.name}}</text></view> 
+            <view class="action">
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+                <i data-index="{{index}}" class="fa fa-minus-circle fa-2x" style="color:#00AF66;" bindtap="deleteNumber"></i>
+            </view>
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+              <text wx:if="{{item.quantity>0}}">{{item.quantity}}</text>
+            </view>
+             <view class="action_item">
+                <i data-index="{{index}}" class="fa fa-plus-circle fa-2x" style="color:#00AF66;" bindtap="addNumber"></i>
+            </view>
+            </view>
+          </view> 
+        </view> 	
       </view>
-    </scroll-view>
-  </view>
-<view><text></text></view>
 
-<van-notify id="van-notify" />
-<van-tabs active="1">
-	<van-tab title="日常办公用品" name="1">
-    <van-grid column-num="3">
-      <view class="item" wx:for="{{assetlists}}" wx:key="index">
-        <view wx:if="{{item.type=='1'}}"> 
-          <navigator url="../assetDetail/assetDetail?id={{item._id}}">
-          <van-grid-item use-slot>
-            <image style="width: 100%; height: 90px;" src="{{item.img}}" />
-            <text style="text-align:center;">{{item.name}}</text>
-          </van-grid-item>
-        </navigator>
-        </view>     
+
+    <view id="list4" class="title">固定资产</view>
+    <view wx:for="{{assetlists}}" wx:key="index">	
+        <view wx:if="{{item.type=='固定资产'}}" class="item">
+          <view><image class="assetimg" mode="scaleToFill" src="{{item.img}}"></image></view>  
+          <view class="itemname">
+            <view><text>{{item.name}}</text></view> 
+            <view class="action">
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+                <i data-index="{{index}}" class="fa fa-minus-circle fa-2x" style="color:#00AF66;" bindtap="deleteNumber"></i>
+            </view>
+            <view wx:if="{{item.quantity>0}}" class="action_item">
+              <text wx:if="{{item.quantity>0}}">{{item.quantity}}</text>
+            </view>
+             <view class="action_item">
+                <i data-index="{{index}}" class="fa fa-plus-circle fa-2x" style="color:#00AF66;" bindtap="addNumber"></i>
+            </view>
+            </view>
+          </view> 
+        </view> 	
       </view>
-    </van-grid>
-	</van-tab>
-	<van-tab title="低值易耗品" name="2">
-    <van-grid column-num="3">
-      <view class="item" wx:for="{{assetlists}}" wx:key="index">
-        <view wx:if="{{item.type=='2'}}"> 
-          <navigator url="../assetDetail/assetDetail?id={{item._id}}">
-          <van-grid-item use-slot>
-            <image style="width: 100%; height: 90px;" src="{{item.img}}" />
-            <text style="text-align:center;">{{item.name}}</text>
-          </van-grid-item>
-        </navigator>
-        </view>     
-      </view>
-    </van-grid>
-	</van-tab>
-	<van-tab title="固定资产" name="3">
-    <van-grid column-num="3">
-      <view class="item" wx:for="{{assetlists}}" wx:key="index">
-        <view wx:if="{{item.type=='3'}}"> 
-          <navigator url="../assetDetail/assetDetail?id={{item._id}}">
-          <van-grid-item use-slot>
-            <image style="width: 100%; height: 90px;" src="{{item.img}}" />
-            <text style="text-align:center;">{{item.name}}</text>
-          </van-grid-item>
-        </navigator>
-        </view>     
-      </view>
-    </van-grid>
-	</van-tab>
-</van-tabs>
+      
+  </scroll-view>
+</view>
+</view>
+<view>
+<van-goods-action>
+   <van-goods-action-icon icon="cart-o" text="已在购物车" info="{{sum}}" />
+
+   <van-goods-action-button text="我选好了" type="primary" bind:click="movetoCart" />
+</van-goods-action>
+</view>

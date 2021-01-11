@@ -1,45 +1,126 @@
-page {
-  padding: 10rpx;
+page{
+  background-color:#F8F8F8; 
+}
+.personalMe{
+   display:flex; /* 伸缩盒子，调整其子元素在不同的屏幕大小中能够用最适合的方法填充合适的空间 */
+   flex-wrap:wrap; /* 换行 */
+   padding: 5rpx; /* 边距 */
+   justify-content: space-between; /* 在成员元素之间留空白 */
+   margin-bottom: 20rpx;
+   height: 220rpx;
+   background-color:#FFFFFE;
+   border-bottom: 1px solid #D2D2D2;
+}
+.personalMe>.left{
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  padding:10rpx;
+  margin-left:30rpx; 
+}
+.personalMe>.right{
+  padding-right:20rpx;
 }
 
 .action {
-  display: flex;
+  display: flex;  
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 30rpx;
-  padding: 30rpx;
+  margin: 10rpx;
+  flex-wrap:wrap;
+  width:100%;
+  overflow-x:hidden;
+
+}
+.action text{
+  font-size: 15pt;
+  font-weight: bold;
+  
 }
 
-.item {
+.item-left {
   display: flex;
   flex-direction: column;
-  height: 250rpx;
+  height: 500rpx;
+  padding: 10rpx;
+  margin-right: 14rpx;
+}
+.item1{
+  height: 500rpx;
+  width: 320rpx;
+  background-color:#FFFFFE;
+  border-radius: 5px;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1px solid #D2D2D2;
+}
+
+.item-right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
   justify-content: space-between;
-  border: 3rpx solid #ddd;
-  width: 250rpx;
+  height: 500rpx;
+  padding: 10rpx;
+
+}
+.item2{
+  height: 220rpx;
+  width: 320rpx;
+  background-color:#FFFFFE;
+  border-radius: 5px;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1px solid #D2D2D2;
+}
+
+.item-center{
+  display: flex;
+  height: 70rpx;
+  border-bottom: 1px solid #D2D2D2;
+  margin: 20rpx 20rpx 30rpx 20rpx;
+  border-radius: 5px;
   padding: 30rpx;
+  background-color:#FFFFFE;
 
 }
-
-.item .logo {
-  margin-left: 50rpx;
-  background-color: #FEFAFB;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  border: 2px solid #ddd;
-
-}
-.item text{
-  font-size: 35rpx;
+.item3{
+  display: flex;
+  justify-content: space-between;
+  width: 700rpx;
+  
 }
 
-.item i {
-  position: relative;
-  left: 38rpx;
-  top: 38rpx;
+.item-center text{
+  font-size: 15pt;
+  font-weight: bold;
+}
 
+.logo1{
+  position:relative;
+  top:240rpx;
+  left:140rpx;
+}
+.png1{
+  width: 230rpx;
+  position:relative;
+  left:70rpx;
+  top:80rpx;
+}
+.png2{
+  width: 90rpx;
+  position:relative;
+  left:140rpx;
+}
+
+.logo2{
+  position:relative;
+  top:20rpx;
+  left:180rpx;
+}
+
+
+.content{
+  padding: 20rpx;
 }
 
 .comment {

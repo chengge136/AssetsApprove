@@ -1,31 +1,4 @@
-<van-tabs active="0">
-  <van-tab title="统计数据" name="0">
-  <view class="title">
-      <text>本年度各类物资已申领数量</text><van-icon name="arrow-down" />
-  </view>
-  <view class="title1">
-      <text>上次刷新时间：{{reloadTime}}</text>
-      <button class="mini-btn" type="default" size="mini" bindtap="reload">点击刷新</button>
-  </view>
-  <van-cell-group>
-  	<view wx:for="{{assetsCount}}" wx:key="index" style="margin-top:20rpx;">
-      <van-field disabled  value="{{ item.quantity }}"  label="{{item.name}}" />
-    </view>
-  </van-cell-group>
-
-  </van-tab>
-   <van-tab title="报表导出" name="1">
-   <view class="currentYear">
-    <van-field value="{{ currentYear }}年度" required center label="报表的年份" use-button-slot disabled>
-      <van-button slot="button" size="small" type="primary" bind:click="getExcel">点击生成excel</van-button>
-    </van-field>
-    </view>
-
-    <view>
-      <textarea class="textarea-link"  placeholder="excel的下载链接" maxlength="200" value="{{fileUrl}}" disabled="true"/> 
-    </view>
-
-    <button type="primary" bindtap="copyFileUrl">复制表格的下载链接</button>
-  </van-tab>
-</van-tabs>
-
+<!--index.wxml-->
+<view class="container">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

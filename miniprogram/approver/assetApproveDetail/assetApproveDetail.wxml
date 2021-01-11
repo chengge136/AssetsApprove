@@ -1,10 +1,6 @@
 <view class="title">
 
-	<view class="status"><text>等待审批</text></view>
-	<view>
-		<text>请查阅申请清单，再决定同意申领或拒绝</text>
-	</view>
-
+	<view><i class="fa fa-clock-o fa-2x"></i><text> 等待审批</text></view>
 </view>
 
 
@@ -12,16 +8,16 @@
 <view class="div">
 
 	<view class="userinfo">
-		<view><text>申请人：</text>{{requestor}}</view>
-		<view><text>所在部门：</text>{{dept}}</view>
-		<view wx:if="{{tag=='办公用品'}}"><text>使用人：</text>{{user}}</view>
-		<view><text>备注：</text>{{memo}}</view>
+		<view class="item">申请人：<text>{{requestor}} </text></view>
+		<view class="item">所在部门：<text>{{dept}}</text></view>
+		<view class="item">物资类型：<text>{{assettype}}</text></view>
+		<view class="item" wx:if="{{assettype=='办公用品'}}"><text>使用人：{{user}}</text></view>
 	</view>
-
 	<van-divider contentPosition="center">申请清单</van-divider>
 
-	<view wx:for="{{itemsinfo}}" wx:key="index">
-		<view class="menu_item"><text>{{item.name}}</text> <text>x</text> <text>{{item.number}}</text></view>
+	<view class="menu_title"><text>物资</text> <text>申请数量</text> <text>本部门年度累积</text></view>
+	<view wx:for="{{itemsReqinfo}}" wx:key="index">	
+		<view class="menu_item"><text>{{item.name}}</text> <text>{{item.number}}</text> <text>{{item.reqNumber}}</text></view>
 	</view>
 
 	<van-divider contentPosition="center">审批流程</van-divider>
@@ -32,22 +28,24 @@
   active-color="#38f"
   direction="vertical"
 />
+
+	<view wx:for="{{requestedItems}}" wx:key="index">
+		<view class="menu_item"><text>{{item.name}}</text> <text>x</text> <text>{{item.number}}</text></view>
+	</view>
+
   
 </view>
 
 <view class="div">
-<view>
-	<view class="problem-desc"><text>拒绝原因</text></view>
+
+<van-button type="primary" block bind:click="approve" disabled="{{disabled}}">同意申请</van-button>
+
+<view class="rej">
 	<textarea class="textarea-bg" maxlength="200" placeholder="填写拒绝的理由" bindinput="getDataBindTap" />
 </view>
 
+<van-button type="danger" block bind:click="reject" disabled="{{disabled}}">拒绝申请</van-button>
 
-<view class="buttongroup">
-<view class="button2">
-<button type="warn" size="{{default}}" disabled="{{disabled}}" bindtap="reject"> 拒绝申请 </button>
-</view>
-<view class="button2">
-<button type="primary" size="{{default}}" disabled="{{disabled}}" bindtap="approve"> 同意申请 </button>
-</view>
-</view>
+
+
 </view>

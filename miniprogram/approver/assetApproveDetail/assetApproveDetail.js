@@ -9,13 +9,13 @@ Page({
   data: {
     orderid: '',
     requestor: '',
+    assettype:'',
     dept:'',
-    tag:'',
     user: '',
-    memo: '',
     ctime:'',
     comment:'',
-    itemsinfo:[],
+    // itemsinfo:[],
+    itemsReqInfo:[],
     steps: [],
     active:'',
     rejReason:'',
@@ -31,32 +31,33 @@ Page({
     var that = this;
     const _ = db.command;
     var _id = options._id;
-    var assettype = options.assettype;
     var curnodeid = options.curnodeid;
-    
+    var dept = options.dept;
+    var itemsReqinfo = [];
     //1，获取订单信息
     db.collection('zh_assets_order').where({
       _id: _.eq(_id)
     }).get().then(res => {
-        console.log("red.data:",res.data[0]);   
         //分割菜单
-        var itemsinfo = [];
         var items = res.data[0].itemsinfo.split(";");
+        
         for (var i = 0; i < items.length-1; i++) {
           var item = items[i].split("-");
-          itemsinfo.push({
+          itemsReqinfo.push({
             name: item[0],
-            number: item[1]
+            number: item[1],
+            reqNumber:0
           })
         }
+        console.log('itemsReqinfo',itemsReqinfo);
+
         that.setData({
           orderid: res.data[0].orderid,
           requestor: res.data[0].requestor,
-          dept:app.returnHanDept(res.data[0].dept),
-          tag:app.returnHanAssetType(res.data[0].assettype),
-          itemsinfo: itemsinfo,
+          dept: res.data[0].dept,
+          // itemsinfo: itemsinfo,
+          assettype:res.data[0].assettype,
           user: res.data[0].user,
-          memo: res.data[0].memo,
           ctime:app.formatDate(new Date(res.data[0].ctime)),
           comment:res.data[0].comment,
           curnodeid:curnodeid,
@@ -105,14 +106,36 @@ Page({
 
     })
 
-    
-    /*
-    steps.unshift({
-      text: '提交物资申请',
-      desc: app.formatDate(new Date(ctime))
-    });
+    //2，获取本部门累计领用数量 requestedItems
+    db.collection('zh_assets_requested').where({
+      dept: _.eq(dept),
+      status:_.eq(3)
+    }).get().then(res => {
+        console.log("累积数量:",res.data[0]);
+        if( res.data.length>0){ 
+        //分割菜单
+        var items = res.data[0].itemsinfo.split(";");
+        for (var i = 0; i < items.length-1; i++) {
+          var item = items[i].split("-");
+          for(var j=0;j<itemsReqinfo.length;j++){
+            if(itemsReqinfo[j].name==item[0]){
+              itemsReqinfo[j].reqNumber=item[1]+itemsReqinfo[j].reqNumber
+            }
+          }
+        }
 
-    */
+        }
+        that.setData({
+          itemsReqinfo: itemsReqinfo
+        })
+
+        
+
+
+
+    })
+
+
   },
   getDataBindTap: function(e) {
     var that=this;
@@ -121,8 +144,7 @@ Page({
     })
   },
   reject:function(){
-    var user
-    var that = this;
+        var that = this;
     if(!that.data.rejReason==''){
       wx.showModal({
         title: '提示',
@@ -168,6 +190,10 @@ Page({
           }
         }
       })
+    }else{
+      wx.showToast({
+        title: '请填写拒绝理由',
+      })
     }
   },
   approve: function() {
@@ -192,8 +218,10 @@ Page({
           for(var i=0;i<len;i++){
             if(curnodeid==required_node[i] && i==len-1){
               console.log('已经到最后一个节点了，变为approve');
-              //如果是最后一个节点，则改变状态为approved
+              //如果是最后一个节点，则改变状态为approved，待领取
               that.approveAction(required_node[i],'2');
+              //that.updateRequestedAsset(that.data.dept,that.data.itemsinfo)
+              //把此次的名单更新到部门累积申请数量
 
             }else if(curnodeid==required_node[i]){
               //如果不是，状态不变，且当前节点变成下一个节点
@@ -235,6 +263,43 @@ Page({
         console.log(err)
       }
     })
+  },
+  updateRequestedAsset:function(dept,itemsinfo){
+    //先查看是否有数据，没有则插入当前
+    if(empty){
+      wx.cloud.callFunction({
+        name: 'assetRequestedManage',
+        data: {
+          dept:dept,
+          itemsinfo:itemsinfo,
+          action:'A'
+        },
+        success: res => {
+        },
+        fail: err => {
+          // handle error
+          console.log(err)
+        }
+      })
+
+    }else{
+      wx.cloud.callFunction({
+        name: 'assetRequestedManage',
+        data: {
+          dept:dept,
+          itemsinfo:itemsinfo,
+          action:'U'
+        },
+        success: res => {
+        },
+        fail: err => {
+          // handle error
+          console.log(err)
+        }
+      })
+    }
+
+    //有数据，则更新itemsinfo字段
   },
  
   /**

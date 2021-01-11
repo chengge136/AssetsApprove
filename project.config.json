@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -10,6 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -21,12 +22,12 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx0596103febd1cc45",
 	"projectname": "Assets-approval",
-	"libVersion": "2.8.1",
+	"libVersion": "2.10.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -54,8 +55,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "登录",
-					"pathName": "pages/login/login",
+					"name": "manager/index/index",
+					"pathName": "manager/index/index",
 					"query": "",
 					"scene": null
 				},
@@ -81,23 +82,23 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "manager/approvalRouting/approvalRouting",
-					"pathName": "manager/approvalRouting/approvalRouting",
+					"id": 4,
+					"name": "charts/bar/index",
+					"pathName": "charts/bar/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "users/requestCart/requestCart",
+					"pathName": "users/requestCart/requestCart",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 6,
-					"name": "users/assetRecord/assetRecord",
-					"pathName": "users/assetRecord/assetRecord",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 7,
-					"name": "users/userCenter/userCenter",
-					"pathName": "users/userCenter/userCenter",
+					"name": "manager/assetRecords/assetRecords",
+					"pathName": "manager/assetRecords/assetRecords",
 					"query": "",
 					"scene": null
 				},
@@ -110,15 +111,15 @@
 				},
 				{
 					"id": 8,
-					"name": "manager/assetRecords/assetRecords",
-					"pathName": "manager/assetRecords/assetRecords",
+					"name": "deptmanager/assetApprove/assetApprove",
+					"pathName": "deptmanager/assetApprove/assetApprove",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "approver/assetApprove1/assetApprove1",
-					"pathName": "approver/assetApprove1/assetApprove1",
+					"id": 9,
+					"name": "deptmanager/index/index",
+					"pathName": "deptmanager/index/index",
 					"query": "",
 					"scene": null
 				}

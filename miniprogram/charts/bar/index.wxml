@@ -1,0 +1,13 @@
+<!-- 导航栏 -->
+
+<view>
+<scroll-view scroll-x class="navbar">
+  <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+    <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.name}}</view>
+  </view>
+</scroll-view>
+</view>
+<!--index.wxml-->
+<view class="container">
+  <ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

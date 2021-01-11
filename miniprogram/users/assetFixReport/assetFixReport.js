@@ -31,7 +31,7 @@ Page({
 
     that.setData({
       requestor:userDetail.name ,
-      dept: app.returnHanDept(userDetail.dept),
+      dept: userDetail.dept,
       phone: userDetail.phone,
       ctime:new Date().getTime()
     });
@@ -154,7 +154,7 @@ Page({
           duration: 1000,
           success: function () {
             wx.redirectTo({
-              url: '../userCenter/userCenter'
+              url: '../fixRecord/fixRecord'
             })
           }
         })

@@ -7,7 +7,7 @@
 
 			<van-grid column-num="5">
       <view class="item" wx:for="{{emplists}}" wx:key="index">
-        <navigator wx:if="{{item.dept=='1'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+        <navigator wx:if="{{item.dept=='行政部'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
           <van-grid-item icon="photo-o" use-slot>
             <text style="text-align:center;">{{item.name}}</text>
           </van-grid-item>
@@ -20,7 +20,7 @@
 
 		<van-grid column-num="5">
       <view class="item" wx:for="{{emplists}}" wx:key="index">
-        <navigator wx:if="{{item.dept=='2'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+        <navigator wx:if="{{item.dept=='维护部'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
           <van-grid-item icon="photo-o" use-slot>
             <text style="text-align:center;">{{item.name}}</text>
           </van-grid-item>
@@ -33,7 +33,7 @@
 
 			<van-grid column-num="5">
       <view class="item" wx:for="{{emplists}}" wx:key="index">
-        <navigator wx:if="{{item.dept=='3'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
+        <navigator wx:if="{{item.dept=='售后部'}}" url="../modifyEmp/modifyEmp?id={{item._id}}">
           <van-grid-item icon="photo-o" use-slot>
             <text style="text-align:center;">{{item.name}}</text>
           </van-grid-item>

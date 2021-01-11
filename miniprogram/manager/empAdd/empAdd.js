@@ -8,7 +8,7 @@ Page({
     name: '',
     phone: '',
     disabled:false,
-    dept: '1',
+    dept: '行政部',
     roletype:'1',
     approver:'1',
     approveflag:false

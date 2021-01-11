@@ -21,6 +21,7 @@ Page({
         that.setData({
           openid: res.result.openid
         })
+        console.log('openid',res.result.openid);
       }
     })
 

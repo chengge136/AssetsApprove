@@ -1,39 +1,42 @@
 <view class="action">
+<view class="row">
 <view class="item" bindtap="budgetApprove">
-<view><text>预算审批</text></view>
-<view class="logo"><i class="fa fa-tasks fa-3x" style="color:#FA9D3B;"></i></view>
+<view class="name"><text>预算审批</text></view>
+<view><i class="fa fa-tasks fa-4x" style="color:#FA9D3B;"></i></view>
 </view>
 <view class="item" bindtap="settings">
-<view><text>设置</text></view>
-<view class="logo"><i class="fa fa-cog fa-3x" style="color:#576B95;"></i></view>
+<view class="name"><text>设置</text></view>
+<view><i class="fa fa-cog fa-4x" style="color:#576B95;"></i></view>
 </view>
-<view class="item" bindtap="assetRecords">
-<view><text>物资申领报表</text></view>
-<view class="logo"><i class="fa fa-table fa-3x" style="color:#7DD1CA;"></i></view>
+</view>
+
+<view>
+<view class="item" bindtap="assetreport">
+<view class="name"><text>查看图表</text></view>
+<view class="logo"><i class="fa fa-bar-chart fa-4x" style="color:#7DD1CA;"></i></view>
 </view>
 <view class="item" bindtap="assetFixRecords">
-<view><text>物品报修报表</text></view>
-<view class="logo"><i class="fa fa-wrench fa-3x" style="color:#F9957D;"></i></view>
+<view class="name"><text>excel数据导出</text></view>
+<view class="logo"><i class="fa fa-file-excel-o fa-4x" style="color:#F9957D;"></i></view>
+</view>
 </view>
 
-
-</view>
-
-
-<view style="color:#FF7211;margin-left:10rpx;">
-  <i class="fa fa-bookmark-o fa"></i>
-  <text style="font-size:32rpx;"> 使用须知</text>
 </view>
 
 <view class="info">
     <view class="comment">
-      <view class="title"><text>管理员使用须知</text></view>
-      <view class="content"><text>用户登录后，进入资产领取申请，选择自己需要的资产，填写必要数据并提交。</text></view>    
+      <view class="title"><text>人员管理</text></view>
+      <view class="content"><text>可在设置中，对人员以及权限进行管理。</text></view>    
     </view>
 
     <view class="comment">
-      <view class="title"><text>如何导出各类报表</text></view>
-      <view class="content"><text>在我的申请进度内查看，申请是否完成，或者需要审批。</text></view>    
+      <view class="title"><text>审批设置</text></view>
+      <view class="content"><text>在设置中，设置不同类别物资的审批层次。</text></view>    
+    </view>
+
+    <view class="comment">
+      <view class="title"><text>物资管理</text></view>
+      <view class="content"><text>设置中添加修改各个类别，用户可申领的物资。</text></view>    
     </view>
 
 </view>

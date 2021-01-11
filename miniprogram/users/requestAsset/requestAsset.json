@@ -6,6 +6,9 @@
         "van-notice-bar": "../../vant/notice-bar/index",
         "van-tab": "../../vant/tab/index",
         "van-tabs": "../../vant/tabs/index",
-        "van-icon": "../../vant/icon/index"
+        "van-icon": "../../vant/icon/index",
+        "van-goods-action": "../../vant/goods-action/index",
+        "van-goods-action-icon": "../../vant/goods-action-icon/index",
+        "van-goods-action-button": "../../vant/goods-action-button/index"
   }
 }
