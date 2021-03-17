@@ -10,9 +10,11 @@ Page({
   data: {
     amount: 0,
     assets: [],
+    phone:'',
     submited: false,
     username:'',
-    dept:''
+    dept:'',
+    budgetorders:[]
 
   },
 
@@ -27,7 +29,7 @@ Page({
 
     db.collection('zh_assets').where(
       {
-        type: _.eq('3')
+        type: _.eq('固定资产')
       }
     ).get({
       success: function (res) {
@@ -47,24 +49,22 @@ Page({
         that.setData({
           assets: assets,
           username:userDetail.name,
-          deptHan:userDetail.dept,
+          phone:userDetail.phone,
           dept:userDetail.dept
         })
       }
     })
 
 
-    db.collection('zh_assets_budget').orderBy('ctime','desc').where(
+    db.collection('zh_assets_budget').orderBy('requestid','desc').where(
       {
         dept: _.eq(userDetail.dept) //根据部门来查询
       }
     ).get({
       success: function (res) {
-        console.log(res.data);
+        console.log('预算',res.data);
         for (var index in res.data) {
           res.data[index].ctime = app.formatDate(new Date(res.data[index].requestid));
-          res.data[index].dept = app.res.data[index].dept;
-
         }
         that.setData({
           budgetorders: res.data
@@ -211,7 +211,8 @@ Page({
       name: 'createBudgetRecord',
       data: {
 	      requestid: new Date().getTime(),
-	      dept: that.data.dept,
+        dept: that.data.dept,
+        phone:that.data.phone,
 	      createdby: that.data.username,
 	      count: count,
         budgetDetails: budgetDetails,

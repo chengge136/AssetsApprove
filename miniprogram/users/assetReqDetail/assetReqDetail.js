@@ -33,7 +33,8 @@ Page({
     const _ = db.command;
     var _id = options._id;
     var curnodeid = options.curnodeid;
-    var ctime=options.ctime;
+    var ctime = Number(options.ctime);
+    console.log(ctime,curnodeid)
     
     db.collection('zh_assets_order').where({
       _id: _.eq(_id)
@@ -76,14 +77,13 @@ Page({
       console.log('approvers',approvers);
       var steps = [{text: '等待领取',desc: '审批完成，等待领取',},{text: '完成',desc: '已领取物资，申请流程完毕',},];
 
-        console.log('that.data',that.data.curnodeid);
         steps.unshift({
           text: '等待'+app.getApprStepByNodeid(curnodeid)+'的审批',
           desc: '审批人：'+approvers
         });  
         steps.unshift({
           text: '领取申请',
-          desc: app.formatDate(new Date(ctime))
+          desc: app.formatDate(new Date(that.data.ctime))
         });
 
         that.setData({

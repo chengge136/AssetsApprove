@@ -49,7 +49,7 @@
     <van-button type="info" block bind:click="save3" disabled='{{disabled}}'>保存设置</van-button>
   </view>
   </van-tab>
-
+<!-- 预算，目前是部门领导和综合办综合员去审批，当前并未添加可设置预算审批流的接口
     <van-tab title="资产预算" name="3">
 <view class="title"><text>勾选 [资产预算] 需要审批的角色</text>
 </view>
@@ -66,6 +66,6 @@
     <van-button type="info" block bind:click="save4" disabled='{{disabled}}'>保存设置</van-button>
   </view>
   </van-tab>
-  
+  -->
 </van-tabs>
 

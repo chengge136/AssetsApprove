@@ -2,12 +2,13 @@
 <view><text>选择物品的类型：</text></view>
 <view>
 <van-radio-group value="{{ type }}" bind:change="selectType" class="radiogroup">
-  <van-radio name="1">日常办公用品</van-radio>
-  <van-radio name="2">低值易耗品</van-radio>
-  <van-radio name="3">固定资产</van-radio>
+  <van-radio name="日常办公用品">日常办公用品</van-radio>
+  <van-radio name="低值易耗品">低值易耗品</van-radio>
+  <van-radio name="固定资产">固定资产</van-radio>
 </van-radio-group>
 </view>
 </view>
+
 
 <van-cell-group>
   <van-field required clearable value="{{ name }}" placeholder="输入物品名称" label="物品名称" bind:change="inputName" />

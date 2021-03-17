@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-empty": "../../vant/empty/index",
+    "van-row": "../../vant/row/index",
+    "van-col": "../../vant/col/index",
+    "van-button": "../../vant/button/index",
+    "van-field": "../../vant/field/index"
+    
+  },
+  "navigationBarTitleText": "工作待办"
+}

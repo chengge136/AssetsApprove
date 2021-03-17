@@ -8,6 +8,7 @@ Page({
    */
   data: {
     orderid: '',
+    phone:'',
     requestor: '',
     dept:'',
     ctime:'',
@@ -40,7 +41,7 @@ Page({
     db.collection('zh_assets_budget').where({
       _id: _.eq(_id)
     }).get().then(res => {
-        console.log("red.data:",res.data[0]);   
+        console.log("red.data1:",res.data[0]);   
         //分割菜单
         var itemsinfo = [];
         var items = res.data[0].budgetDetails.split(";");
@@ -52,9 +53,10 @@ Page({
           })
         }
         that.setData({
-          orderid: res.data[0].requestid,
+          orderid:res.data[0].requestid,
+          phone:res.data[0].phone,
           requestor: res.data[0].createdby,
-          dept:app.res.data[0].dept,
+          dept:res.data[0].dept,
           itemsinfo: itemsinfo,
           ctime:app.formatDate(new Date(res.data[0].requestid)),
           comment:res.data[0].comment
@@ -75,6 +77,12 @@ Page({
     var that=this;
     that.setData({
       rejReason: e.detail.value
+    })
+  },
+  makecall(event){
+    var phone = event.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone
     })
   },
   reject:function(){

@@ -12,10 +12,10 @@
 <view class="div">
 
 	<view class="userinfo">
-		<view>申请人：<text>{{requestor}}</text></view>
-		<view>所在部门：<text>{{dept}}</text></view>
-		<view wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
-		<view>备注：<text>{{memo}}</text></view>
+		<view class="item">申请人：<text>{{requestor}} </text></view>
+		<view class="item">所在部门：<text>{{dept}}</text></view>
+		<view class="item" wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
+		<view class="item" wx:if="{{memo!=''}}">备注：<text>{{memo}}</text></view>
 	</view>
 
 	<van-divider contentPosition="center">物资清单</van-divider>
@@ -31,6 +31,15 @@
     active="{{ active }}"
     direction="vertical"
   />
-	</view>
-  
+	</view>  
 </view>
+
+<view class="star">
+		<view><text>为此次申领体验评分：</text></view>
+		<view style="margin-bottom: 20rpx;">
+			<van-rate value="{{ star }}" bind:change="chooseStar" />
+		</view>
+		<view style="margin-bottom: 20rpx;">
+			<van-button type="primary" block bind:click="complete" disabled="{{disabled}}">我已领取</van-button>
+		</view>
+	</view>

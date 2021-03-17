@@ -1,0 +1,32 @@
+
+	<view wx:if='{{assetGrants.length==0}}'>
+	<van-empty image="search" description="没有待领取的申请" />
+</view>
+<view wx:else>
+	<view style="margin-top:30rpx;">
+		<view wx:for="{{assetGrants}}" wx:key="index" style="margin-top:20rpx;">
+
+				<view class="title" style="background-color: #10AEFF;">
+					<view><text> {{item.ctime}}</text></view>
+					<view><text>待领取</text></view>
+        </view>
+        <view>
+        <van-cell-group>
+          <van-field value="{{item.requestor}}" label="申请人" readonly/>
+          <van-field value="{{ item.phone }}" label="联系电话" icon="phone-o" data-phone="{{item.phone}}" bind:click-icon="makeCall" readonly/>
+          <van-field value="{{item.dept}}" label="所在部门" readonly/>
+        </van-cell-group>
+      </view>
+      
+
+				<view class="desc"> 
+            <view class="problem-desc">申请物资-数量</view>
+            <view class="textarea"> 
+            <textarea  maxlength="100" value="{{ item.itemsinfo }}" disabled="true"/> 
+            </view>
+        </view>
+
+		</view>
+	</view>
+</view>
+

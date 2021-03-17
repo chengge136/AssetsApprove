@@ -1,17 +1,29 @@
 <van-cell-group>
   <van-field required clearable value="{{ name }}" placeholder="输入物品名称" label="物品名称" bind:change="inputName"/>
-  <van-field required clearable type="digit" value="{{ memo }}" placeholder="输入备注信息" label="备注" bind:change="inputMemo" />
 </van-cell-group>
 <view class="assetType">
 <view><text>选择物品的类型：</text></view>
 <view>
 <van-radio-group value="{{ type }}" bind:change="selectType" class="radiogroup">
-  <van-radio name="1">日常办公用品</van-radio>
-  <van-radio name="2">低值易耗品</van-radio>
-  <van-radio name="3">固定资产</van-radio>
+  <van-radio name="办公用品">日常办公用品</van-radio>
+  <van-radio name="低值易耗品">低值易耗品</van-radio>
+  <van-radio name="固定资产">固定资产</van-radio>
 </van-radio-group>
 </view>
 </view>
+
+<view class="assetPopular">
+
+  <view><text>是否为经常领取：</text></view>
+  <view>
+    <van-radio-group value="{{ popular }}" bind:change="selectPopular" class="popular">
+      <van-radio name="false">否</van-radio>
+      <van-radio name="true">是</van-radio>
+    </van-radio-group>
+  </view>
+
+</view>
+
 
 <view wx:if="{{!imagePath==''}}">
 <view class="image">

@@ -27,7 +27,11 @@ page{
 .item{
   padding: 10rpx;
 }
-
+.item1{
+  padding: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
 .item text{
   font-size: 12pt; 
   font-weight: bold;

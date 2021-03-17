@@ -14,8 +14,8 @@ exports.main = async (event, context) => {
       data: {
         name: event.name,
         type:event.type,
-        memo: event.memo,
         img: event.img,
+        popular:false
       }
     }).then(console.log).catch(console.error)
 
@@ -27,7 +27,7 @@ exports.main = async (event, context) => {
       data: {
         name: event.name,
         type:event.type,
-        memo:event.memo
+        popular:event.popular
       }
     }).then(console.log).catch(console.error)
 

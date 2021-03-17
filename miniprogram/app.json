@@ -30,6 +30,8 @@
     "manager/budgetApproveDetail/budgetApproveDetail",
     "manager/assetRecords/assetRecords",
     "manager/assetFixRecords/assetFixRecords",
+    "manager/assetGrant/assetGrant",
+    "manager/hisRecords/hisRecords",
     "approver/index/index",
     "approver/assetApprove2/assetApprove2",
     "approver/assetApproveDetail/assetApproveDetail",
@@ -40,14 +42,9 @@
     "charts/bar/index",
     "deptmanager/index/index",
     "deptmanager/assetApprove/assetApprove"
-
-    
-
-    
-
     
   ],
-  "window": {
+  "window":{
     "backgroundColor": "#FFFFFF",
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTextStyle": "black",

@@ -9,7 +9,7 @@ Page({
     name: '',
     memo: '',
     disabled:false,
-    type: '1'
+    type: '日常办公用品'
 
   },
 

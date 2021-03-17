@@ -1,27 +1,32 @@
 <van-tabs active="a">
-	<van-tab title="进行中物资申领" name="a">
-		<view style="margin-top:30rpx;">
-			<van-collapse accordion value="{{ activeName }}" bind:change="onChange" accordion="true">
-				<van-collapse-item title="待审批的申请  ({{pendingOrdersLen}})" name="1" icon="clock-o">
-					<view class="row" wx:for="{{pendingOrders}}" wx:key="index">
-					<navigator url="../assetReqDetail/assetReqDetail?_id={{item._id}}&curnodeid={{item.curnodeid}}&ctime={{item.ctime}}">
-						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
-						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
-					</navigator>
-					</view>
-				</van-collapse-item>
+	<van-tab title="待审批的申领" name="b">
 
-				<van-collapse-item title="审批通过待领取  ({{approvedOrdersLen}})" name="2" icon="completed">
-					<view class="row" wx:for="{{approvedOrders}}" wx:key="index">
-					<navigator url="../assetApprovedDetail/assetApprovedDetail?_id={{item._id}}&ctime={{item.ctime}}">
-						<view class="item1"><text><text class="text_title">编号:</text>{{item.orderid}}</text><text><text class="text_title">时间:</text>{{item.ctime}}</text></view>
-						<view> <text><text class="text_title">物资：</text>{{item.about}}</text></view>
-						</navigator>
-					</view>
-				</van-collapse-item>
-			</van-collapse>
-		</view>
-	</van-tab>
+<view wx:if='{{pendingOrders.length==0}}'>
+  <van-empty image="search" description="暂无待审批的申领" />
+</view>
+<view wx:else>
+  <view style="margin-top:30rpx;">
+    <view wx:for="{{pendingOrders}}" wx:key="index" style="margin-top:20rpx;">
+      <navigator url="../../users/assetReqDetail/assetReqDetail?_id={{item._id}}&curnodeid={{item.curnodeid}}&ctime={{item.ctime}}">
+        <view class="title" style="background-color:#FA9D3B;">
+          <view><i class="fa fa-clock-o fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
+          <view><text>待审批</text></view>
+        </view>
+        <view class="neworder">
+          <view>
+            <text class="label">申请人：</text><text class="content">{{item.requestor}}</text>
+          </view>
+            <view>
+            <text class="label">所在部门：</text><text>{{item.dept}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+<view class="desc"><text>没有更多了</text></view>
+</view>
+
+</van-tab>
 	<van-tab title="已完成申领" name="b">
 
 			<view wx:if='{{completedorders.length==0}}'>
@@ -30,7 +35,7 @@
 			<view wx:else>
 				<view style="margin-top:30rpx;">
 					<view wx:for="{{completedorders}}" wx:key="index" style="margin-top:20rpx;">
-						<navigator url="../assetCompletedDetail/assetCompletedDetail?_id={{item._id}}&ctime={{item.ctime}}">
+						<navigator url="../../users/assetCompletedDetail/assetCompletedDetail?_id={{item._id}}">
 							<view class="title" style="background-color:#07C160;">
 								<view><i class="fa fa-clock-o fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
 								<view><text>已完成</text></view>
@@ -57,7 +62,7 @@
 		<view wx:else>
 			<view style="margin-top:30rpx;">
 				<view wx:for="{{rejectedOrders}}" wx:key="index" style="margin-top:20rpx;">
-					<navigator url="../assetRejectDetail/assetRejectDetail?_id={{item._id}}&ctime={{item.ctime}}">
+					<navigator url="../../users/assetRejectDetail/assetRejectDetail?_id={{item._id}}&ctime={{item.ctime}}">
 						<view class="title" style="background-color:#FA5151;">
 							<view><i class="fa fa-clock-o fa-2x" style="color:#FFFFFF;"></i><text> {{item.ctime}}</text></view>
 							<view><text>被拒绝</text></view>

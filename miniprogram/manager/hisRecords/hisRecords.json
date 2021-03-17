@@ -9,5 +9,5 @@
         "van-empty": "../../vant/empty/index",
         "van-icon": "../../vant/icon/index"
   },
-  "navigationBarTitleText": "物资申领进度"
+  "navigationBarTitleText": "物资申领记录"
 }

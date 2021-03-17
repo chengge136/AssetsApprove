@@ -1,25 +1,66 @@
 page{
   background-color:#F8F8F8; 
 }
+
+.personalMe_bg{
+  border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
 .personalMe{
+   background:rgba(255,255,255,0.4);
    display:flex; /* 伸缩盒子，调整其子元素在不同的屏幕大小中能够用最适合的方法填充合适的空间 */
    flex-wrap:wrap; /* 换行 */
    padding: 5rpx; /* 边距 */
    justify-content: space-between; /* 在成员元素之间留空白 */
    margin-bottom: 20rpx;
-   height: 220rpx;
-   background-color:#FFFFFE;
-   border-bottom: 1px solid #D2D2D2;
+   height: 250rpx;
 }
-.personalMe>.left{
+
+.left1{
+  display: flex;
+  align-items: center;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+.head image{
+  width:80px;height:80px;
+  border:1px solid #ddd;
+  float:left;
+  margin:20rpx 20rpx;
+  border-radius: 10%;
+}
+
+.head_desc{
+  display: flex;
+  flex-direction: column;
+}
+.head_desc text{
+  font-size: 14pt;
+  color:#fff;
+  font-weight: bold;
+}
+.header_text{
+  padding: 10rpx;
+}
+
+.right image{
+  width:80px;
+  height:80px;
+}
+
+.right1{
   display:flex;
   flex-direction:column;
   justify-content: space-between;
   padding:10rpx;
-  margin-left:30rpx; 
+  margin-left:30rpx;
 }
-.personalMe>.right{
-  padding-right:20rpx;
+.right1 text{
+  font-size: 14pt;
+  font-weight: bold;
+  color:#FFF;
 }
 
 .action {

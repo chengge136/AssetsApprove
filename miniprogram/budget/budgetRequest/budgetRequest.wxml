@@ -7,15 +7,10 @@
   text="全选或勾选需要的固定资产，填入预算数量并提交；超出预算或未提交本年度的资产预算，所在部门员工申请时需要特批"
 />
 <van-cell-group>
-  <van-field  value="{{ deptHan }}" label="所在部门" disabled/>
+  <van-field  value="{{ dept }}" label="所在部门" disabled/>
   <van-field  value="{{ username }}" label="提交人" disabled/>
 </van-cell-group>
 
-
-		<view class="title_a" style="background-color: #5579ED;">
-			<view><text>资产名称</text></view>
-			<view><text>预算数量</text></view>
-		</view>
 
 		<view class="chooseAll">
 		 <checkbox-group bindchange="checkAll">
@@ -24,7 +19,8 @@
 		</view>
 		
     <view>
-		<view wx:for="{{assets}}" wx:key="index">
+			<view class="asset_title"><text>资产</text><text>数量</text></view>
+			<view wx:for="{{assets}}" wx:key="index">
 			<view class="line_1">
 				<checkbox-group bindchange="checkboxChange" data-name="{{item.name}}">
 					<label><view><checkbox value="{{item._id}}" checked="{{item.checked}}" />{{item.name}}</view></label>
@@ -34,7 +30,8 @@
 		</view>
     </view>
   <view>
-    <button type="primary" size="{{default}}" disabled="{{submited}}" bindtap="submitBudget"> 提交 </button>
+	<view style="margin-top:30rpx;">    <button type="primary" size="{{default}}" disabled="{{submited}}" bindtap="submitBudget"> 提交 </button>
+</view>	
 </view>
 	</van-tab>
 	<van-tab title="提交记录" name="b">

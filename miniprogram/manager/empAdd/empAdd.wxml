@@ -35,9 +35,8 @@
 <van-radio-group value="{{ approver }}" bind:change="selectApprover" class="radiogroup">
   <van-radio name="1">部门领导</van-radio>
   <van-radio name="2">综合办主任</van-radio>
-  <van-radio name="3">物资部主任</van-radio>
-  <van-radio name="4">分部分管领导</van-radio>
-  <van-radio name="5">分部主要负责人</van-radio>
+  <van-radio name="3">分部分管领导</van-radio>
+  <van-radio name="4">分部主要负责人</van-radio>
 </van-radio-group>
 </view>
 </view>

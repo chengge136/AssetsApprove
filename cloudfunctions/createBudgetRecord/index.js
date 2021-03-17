@@ -12,7 +12,8 @@ exports.main = async (event, context) => {
     return await db.collection('zh_assets_budget').add({
       data: {
         requestid: event.requestid,
-	      dept: event.dept,
+        dept: event.dept,
+        phone:event.phone,
 	      createdby: event.createdby,
 	      count: event.count,
         budgetDetails: event.budgetDetails,

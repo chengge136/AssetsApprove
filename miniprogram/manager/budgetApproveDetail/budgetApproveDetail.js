@@ -9,6 +9,7 @@ Page({
   data: {
     orderid: '',
     requestor: '',
+    phone:'',
     dept:'',
     ctime:'',
     comment:'',
@@ -54,6 +55,7 @@ Page({
         that.setData({
           orderid: res.data[0].requestid,
           requestor: res.data[0].createdby,
+          phone:res.data[0].phone,
           dept:res.data[0].dept,
           itemsinfo: itemsinfo,
           ctime:app.formatDate(new Date(res.data[0].requestid)),
@@ -75,6 +77,12 @@ Page({
     var that=this;
     that.setData({
       rejReason: e.detail.value
+    })
+  },
+  makecall(event){
+    var phone = event.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone
     })
   },
   reject:function(){

@@ -24,7 +24,8 @@ exports.main = async (event, context) => {
         required_node:event.required_node,
         curnodeid:event.curnodeid,
         status:'1',
-        comment:''
+        comment:'',
+        star:0
       }
     }).then(console.log).catch(console.error)
   }

@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disabled:false,
+    star:0,
     orderid: '',
     requestor: '',
     dept:'',
@@ -47,7 +49,7 @@ Page({
           orderid: res.data[0].orderid,
           requestor: res.data[0].requestor,
           dept:res.data[0].dept,
-          tag:app.returnHanAssetType(res.data[0].assettype),
+          tag:res.data[0].assettype,
           itemsinfo: itemsinfo,
           user: res.data[0].user,
           memo: res.data[0].memo,
@@ -68,7 +70,47 @@ Page({
       })
 
   },
- 
+  chooseStar(event){
+    this.setData({
+      star: event.detail,
+    });
+  },
+  complete(){
+    var that=this;
+    if(that.data.star==0){
+      wx.showToast({
+        title: '请评分',
+      })
+    }else{
+      that.setData({
+        disabled:true
+      });
+      wx.cloud.callFunction({
+        name: 'assetApproveManage',
+        data: {
+          orderid: that.data.orderid,
+          star: that.data.star,
+          action:'C'
+        },
+        success: res => {
+          wx.showToast({
+            title: '领取完成',
+            icon: 'success',
+            duration: 2000,
+            success: function () {
+              wx.navigateTo({
+                url: '../assetRecord/assetRecord',
+              })
+            }
+          })
+        },
+        fail: err => {
+          // handle error
+          console.log(err)
+        }
+      })
+    }   
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

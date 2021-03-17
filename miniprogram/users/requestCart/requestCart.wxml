@@ -26,8 +26,8 @@
 
 <view style="margin-bottom:100rpx;">
 <van-cell-group>
-  <van-field disabled value="{{ requestor }}" label="申请人"/>
-  <van-field disabled value="{{ dept }}" label="使用部门"/>
+  <van-field readonly value="{{ requestor }}" label="申请人"/>
+  <van-field readonly value="{{ dept }}" label="使用部门"/>
   <view wx:if="{{assettype=='办公用品'}}">
     <van-field required clearable value="{{ user }}" placeholder="填写领用人" label="领用人" bind:change="inputUser" />
   </view>
@@ -35,8 +35,8 @@
 </van-cell-group>
 </view>
 
-<view>
-<van-goods-action>
-   <van-goods-action-button disabled="{{mutiple_selected}}" text="提交" type="danger" bind:click="submit" />
-</van-goods-action>
+<view style="margin-top:200rpx;border:1px solid red;">
+  <van-goods-action>
+    <van-goods-action-button disabled="{{mutiple_selected}}" text="提交" type="danger" bind:click="submit" />
+  </van-goods-action>
 </view>

@@ -30,14 +30,15 @@ exports.main = async (event, context) => {
       }
     }).then(console.log).catch(console.error)
 
-  }else{
-    try {
-      return await db.collection('zh_assets').where({
-        _id: _.eq(event.id)
-      }).remove()
-    } catch (e) {
-      console.error(e)
-    }
+  }else if(event.action=='C'){
+    return await db.collection('zh_assets_order').where({
+      orderid: _.eq(event.orderid)
+    }).update({
+      data: {
+        star:event.star,
+        status:'3'
+      }
+    }).then(console.log).catch(console.error)
   }
 
 

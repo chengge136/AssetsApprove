@@ -53,14 +53,14 @@ Page({
   
         steps.unshift({
           text: '提交物资申请',
-          desc: app.formatDate(new Date(ctime))
+          desc: app.formatDate(new Date(res.data[0].ctime))
         });
 
         that.setData({
           orderid: res.data[0].orderid,
           requestor: res.data[0].requestor,
           dept:res.data[0].dept,
-          tag:app.returnHanAssetType(res.data[0].assettype),
+          tag:res.data[0].assettype,
           itemsinfo: itemsinfo,
           user: res.data[0].user,
           memo: res.data[0].memo,

@@ -2,24 +2,32 @@
 
   <view class="button" bindtap="empManage">
   <view><i class="fa fa-group fa"></i><text>  雇员管理（按部门分类）</text></view>
-  <view><text>... </text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
   </view>
 
   <view class="button" bindtap="accessHub">
   <view><i class="fa fa-check-square-o fa"></i><text>  雇员管理（按权限分类）</text></view>
-  <view><text>... </text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
   </view>
 
   <view class="button" bindtap="approvalRouting">
   <view><i class="fa fa-gavel fa"></i><text>  审批设置</text></view>
-  <view><text>... </text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
   </view>
 
   <view class="button" bindtap="assetManage">
   <view><i class="fa fa-cubes fa"></i><text>  物资管理</text></view>
-  <view><text>... </text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
   </view>
 
+  <view class="button" bindtap="chart">
+  <view><i class="fa fa-bar-chart fa"></i><text>  查看图表</text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
+  </view>
 
+  <view class="button" bindtap="excelout">
+  <view><i class="fa fa-file-excel-o fa"></i><text>  excel数据导出</text></view>
+  <view><i class="fa fa-arrow-right fa"></i></view>
+  </view>
 
 </view>

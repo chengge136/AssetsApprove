@@ -1,24 +1,32 @@
 <view class="action">
 <view class="row">
-<view class="item" bindtap="budgetApprove">
-<view class="name"><text>预算审批</text></view>
-<view><i class="fa fa-tasks fa-4x" style="color:#FA9D3B;"></i></view>
+
+  <view class="item" bindtap="assetGrant">
+<view class="name"><text>工作待办</text></view>
+<view class="logo"><i class="fa fa-star-half-o fa-4x" style="color:#F9957D;"></i></view>
 </view>
+
+
+
 <view class="item" bindtap="settings">
 <view class="name"><text>设置</text></view>
 <view><i class="fa fa-cog fa-4x" style="color:#576B95;"></i></view>
 </view>
+
 </view>
 
 <view>
+
 <view class="item" bindtap="assetreport">
-<view class="name"><text>查看图表</text></view>
-<view class="logo"><i class="fa fa-bar-chart fa-4x" style="color:#7DD1CA;"></i></view>
+<view class="name"><text>物资申领记录</text></view>
+<view class="logo"><i class="fa fa-history fa-4x" style="color:#7DD1CA;"></i></view>
 </view>
-<view class="item" bindtap="assetFixRecords">
-<view class="name"><text>excel数据导出</text></view>
-<view class="logo"><i class="fa fa-file-excel-o fa-4x" style="color:#F9957D;"></i></view>
+
+<view class="item" bindtap="budgetApprove">
+<view class="name"><text>预算审批</text></view>
+<view><i class="fa fa-tasks fa-4x" style="color:#FA9D3B;"></i></view>
 </view>
+
 </view>
 
 </view>

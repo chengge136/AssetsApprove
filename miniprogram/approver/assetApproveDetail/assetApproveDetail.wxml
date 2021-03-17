@@ -9,9 +9,10 @@
 
 	<view class="userinfo">
 		<view class="item">申请人：<text>{{requestor}} </text></view>
+		<view class="item1" data-phone="{{phone}}" bindtap="makecall">电话：<text>{{phone}} </text><i class="fa fa-phone fa" style="color:#10AEFF;"></i></view>
 		<view class="item">所在部门：<text>{{dept}}</text></view>
 		<view class="item">物资类型：<text>{{assettype}}</text></view>
-		<view class="item" wx:if="{{assettype=='办公用品'}}"><text>使用人：{{user}}</text></view>
+		<view class="item" wx:if="{{assettype=='办公用品'}}">使用人：<text>{{user}}</text></view>
 	</view>
 	<van-divider contentPosition="center">申请清单</van-divider>
 

@@ -9,32 +9,27 @@ Page({
     roles1: [
       {value: '1', name: '部门领导',checked:false},
       {value: '2', name: '综合办主任',checked:false},
-      {value: '3', name: '物资部主任',checked:false},
-      {value: '4', name: '分部分管领导',checked:false},
-      {value: '5', name: '分部主要负责人',checked:false},
+      {value: '3', name: '分部分管领导',checked:false},
+      {value: '4', name: '分部主要负责人',checked:false},
     ],
     roles2: [
       {value: '1', name: '部门领导',checked:false},
       {value: '2', name: '综合办主任',checked:false},
-      {value: '3', name: '物资部主任',checked:false},
-      {value: '4', name: '分部分管领导',checked:false},
-      {value: '5', name: '分部主要负责人',checked:false},
+      {value: '3', name: '分部分管领导',checked:false},
+      {value: '4', name: '分部主要负责人',checked:false},
     ],
     roles3: [
       {value: '1', name: '部门领导',checked:false},
       {value: '2', name: '综合办主任',checked:false},
-      {value: '3', name: '物资部主任',checked:false},
-      {value: '4', name: '分部分管领导',checked:false},
-      {value: '5', name: '分部主要负责人',checked:false},
+      {value: '3', name: '分部分管领导',checked:false},
+      {value: '4', name: '分部主要负责人',checked:false},
     ],
     roles4: [
-      {value: '0', name: '部门综合员',checked:false},
       {value: '1', name: '部门领导',checked:false},
       {value: '2', name: '综合办主任',checked:false},
-      {value: '3', name: '物资部主任',checked:false},
-      {value: '4', name: '分部分管领导',checked:false},
-      {value: '5', name: '分部主要负责人',checked:false},
-      {value: '6', name: '综合办综合员（系统admin）',checked:false}
+      {value: '3', name: '分部分管领导',checked:false},
+      {value: '4', name: '分部主要负责人',checked:false},
+      {value: '5', name: '综合办综合员（系统admin）',checked:false}
     ],
     routStr1:'',
     routStr2:'',
@@ -49,7 +44,6 @@ Page({
    */
   onLoad: function (options) {
 
-    var that = this;
     const _ = db.command;
 
     const roles1 = this.data.roles1;
@@ -132,19 +126,19 @@ Page({
 
   save1:function(){
     var that=this;
-    that.updateRouting('1',this.data.routStr1);
+    that.updateRouting('办公用品',this.data.routStr1);
   },
   save2:function(){
     var that=this;
-    that.updateRouting('2',this.data.routStr2);
+    that.updateRouting('低值易耗品',this.data.routStr2);
   },
   save3:function(){
     var that=this;
-    that.updateRouting('3',this.data.routStr3);
+    that.updateRouting('固定资产',this.data.routStr3);
   },
   save4:function(){
     var that=this;
-    that.updateRouting('4',this.data.routStr4);
+    that.updateRouting('资产预算',this.data.routStr4);
   },
   updateRouting: function(type,value) {
     var that = this;

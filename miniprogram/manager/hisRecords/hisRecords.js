@@ -10,12 +10,11 @@ Page({
     active: 1,
     activeName:'1',
     pendingOrders:[],
-    approvedOrders:[],
     rejectedOrders:[],
     completedorders: [],
     pendingOrdersLen:0,
-    approvedOrdersLen:0,
-    rejectedOrdersLen:0
+    rejectedOrdersLen:0,
+    completedordersLen:0
 
   },
 
@@ -25,51 +24,46 @@ Page({
   onLoad: function (options) {
     var that = this;
     const _ = db.command;
-    var userDetail = wx.getStorageSync('userDetail');
 
     //获取申请单，按时间倒序
     db.collection('zh_assets_order').where(
       {    
-        phone: _.eq(userDetail.phone)
+        status: _.eq('1')
       }
     ).orderBy('ctime', 'desc').get({
       success: function (res) {
         var arr=res.data;
-        console.log('res',res.data);
-
-        var pendingOrders=[];
-        var approvedOrders=[];
-        var rejectedOrders=[];
-        var completedorders=[];
-
-
-        for (var i = 0; i < arr.length; i++) {
-          arr[i].ctime = app.formatmd(new Date(arr[i].ctime));
-          switch(arr[i].status){
-            case '3':
-              completedorders.push(arr[i]);
-              break;
-            case '1':
-              pendingOrders.push(arr[i]);
-              break;
-            case '2':
-              approvedOrders.push(arr[i]);
-              break;
-            case '-1':
-              rejectedOrders.push(arr[i]);
-              break;
-          }
-        }
-
-        
+  
         that.setData({
-          pendingOrders:pendingOrders,
-          approvedOrders:approvedOrders,
-          rejectedOrders:rejectedOrders,
-          completedorders: completedorders,
-          pendingOrdersLen:pendingOrders.length,
-          approvedOrdersLen:approvedOrders.length,
-          rejectedOrdersLen:rejectedOrders.length
+          pendingOrders:arr
+        })
+      }
+    })
+
+    db.collection('zh_assets_order').where(
+      {    
+        status: _.eq('-1')
+      }
+    ).orderBy('ctime', 'desc').get({
+      success: function (res) {
+        var arr=res.data;
+  
+        that.setData({
+          rejectedOrders:arr
+        })
+      }
+    })
+
+    db.collection('zh_assets_order').where(
+      {    
+        status: _.eq('3')
+      }
+    ).orderBy('ctime', 'desc').get({
+      success: function (res) {
+        var arr=res.data;
+  
+        that.setData({
+          completedorders:arr
         })
       }
     })

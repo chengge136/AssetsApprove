@@ -64,7 +64,7 @@ Page({
         var arr=res.data;
         console.log('res',res.data);
         for (var i = 0; i < arr.length; i++) {
-          arr[i].ctime = app.formatDate(new Date(arr[i].requestid));
+          arr[i].ctime = app.formatmd(new Date(arr[i].requestid));
         }
         that.setData({
           budgetRequests:arr

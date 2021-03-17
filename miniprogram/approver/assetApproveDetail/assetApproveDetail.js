@@ -9,6 +9,7 @@ Page({
   data: {
     orderid: '',
     requestor: '',
+    phone:'',
     assettype:'',
     dept:'',
     user: '',
@@ -53,6 +54,7 @@ Page({
 
         that.setData({
           orderid: res.data[0].orderid,
+          phone: res.data[0].phone,
           requestor: res.data[0].requestor,
           dept: res.data[0].dept,
           // itemsinfo: itemsinfo,
@@ -123,7 +125,6 @@ Page({
             }
           }
         }
-
         }
         that.setData({
           itemsReqinfo: itemsReqinfo
@@ -141,6 +142,13 @@ Page({
     var that=this;
     that.setData({
       rejReason: e.detail.value
+    })
+  },
+
+  makecall(event){
+    var phone = event.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone
     })
   },
   reject:function(){

@@ -27,7 +27,7 @@ Page({
     var that = this;
     const _ = db.command;
     var _id = options._id;
-    var ctime=options.ctime;
+    
     
     db.collection('zh_assets_order').where({
       _id: _.eq(_id)
@@ -44,12 +44,13 @@ Page({
           })
         }
         var steps = [{text: '审批',desc: '审批通过',},{text: '等待领取',desc: '审批完成，等待领取',},{text: '完成',desc: '已领取物资，申请流程完毕',},];
-  
+        
   
         steps.unshift({
           text: '提交物资申请',
-          desc: app.formatDate(new Date(ctime))
+          desc: app.formatDate(new Date(res.data[0].ctime))
         });
+
 
         that.setData({
           orderid: res.data[0].orderid,

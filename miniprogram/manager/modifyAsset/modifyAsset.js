@@ -9,8 +9,9 @@ Page({
     id: '',
     imagePath: '',
     name: '',
-    memo: '',
-    type:''
+    type:'',
+    popular:''
+
 
   },
 
@@ -26,12 +27,12 @@ Page({
         _id: _.eq(id)
       })
       .get().then(res => {
-        console.log(res.data[0]);
+        console.log(res.data[0].popular.toString());
         that.setData({
           name: res.data[0].name,
-          memo: res.data[0].memo,
           imagePath: res.data[0].img,
           type:res.data[0].type,
+          popular:res.data[0].popular.toString(),
           id: options.id
         })
       })
@@ -99,7 +100,7 @@ Page({
               id: that.data.id,
               name: that.data.name,
               type:that.data.type,
-              memo:that.data.memo,
+              popular:(that.data.popular == 'true'),
               action:'U'
             },
             success: res => {
@@ -132,15 +133,15 @@ Page({
       name: event.detail
     })
   },
-  inputMemo: function(event) {
-    var that = this;
-    that.setData({
-      memo: event.detail
-    })
-  },
+
   selectType(event) {
     this.setData({
       type: event.detail,
+    });
+  },
+  selectPopular(event) {
+    this.setData({
+      popular: event.detail,
     });
   },
   //图片点击事件

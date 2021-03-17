@@ -27,6 +27,13 @@ Page({
     wx.navigateTo({ url: '../objectManage/objectManage' })
   },
 
+  chart(){
+    wx.navigateTo({ url: '../../charts/bar/index', })
+  },
+  excelout(){
+    wx.navigateTo({ url: '../assetFixRecords/assetFixRecords', })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

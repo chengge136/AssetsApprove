@@ -23,6 +23,8 @@ page{
   background-color:#FFFFFE; 
   padding: 20rpx;
 }
+
+
 .userinfo{
   display: flex;
   flex-direction: column;
@@ -36,10 +38,18 @@ page{
   display: flex;
   justify-content: space-between;
 }
-.other{
+
+
+.star{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: 350rpx;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20rpx;
+  background-color:#FFFFFE; 
+  height: 300rpx;
+}
+
+.star text{
+  font-size: 12pt;
 }

@@ -3,6 +3,7 @@
     "van-divider": "../../vant/divider/index",
     "van-button": "../../vant/button/index",
     "van-field": "../../vant/field/index",
-    "van-steps": "../../vant/steps/index"
+    "van-steps": "../../vant/steps/index",
+    "van-rate": "../../vant/rate/index"
   }
 }

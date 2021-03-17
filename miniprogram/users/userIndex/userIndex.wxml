@@ -1,15 +1,22 @@
-<view class="personalMe">
-<view class="left">
-<text style="font-size:40rpx;font-weight:bold;">{{name}}</text>
-<text style="font-size:30rpx;color:#A6A4A4">{{dept}}</text>
-<text style="font-size:30rpx;color:#A6A4A4">领东西&报修</text>
-</view>
+<view class="personalMe_bg" style="background: url({{avatarUrl}}) no-repeat;background-size: cover;background-position: center center;">
 
-<view class="right">
-<image src="{{avatarUrl}}" style="width:80px;height:80px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
-</view>
-</view>
+  <view class="personalMe">
+    <view class="left">
+      <view class="head"><image src="{{avatarUrl}}"></image></view>
+      
+      <view class="head_desc">
+      <view class="header_text"><text>{{name}}</text></view>
+      <view class="header_text"><text style="font-size:12pt;">{{dept}}</text></view>
+      </view>
+    </view>
 
+    <view class="right">
+      <image src="../../png/zhenghao_logo.png"></image>
+    </view>
+
+  </view>
+
+</view>
 
 <view class="action">
 

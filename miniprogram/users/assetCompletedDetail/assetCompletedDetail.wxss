@@ -26,10 +26,15 @@ page{
 .userinfo{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  font-size: 12pt; 
 }
-.userinfo text{
-  color:#7B7B7B;
+.item{
+  padding: 10rpx;
+}
+
+.item text{
+  font-size: 12pt; 
+  font-weight: bold;
 }
 
 .menu_item{

@@ -1,129 +1,121 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"appid": "wx0596103febd1cc45",
-	"projectname": "Assets-approval",
-	"libVersion": "2.10.2",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "manager/index/index",
-					"pathName": "manager/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "用户首页",
-					"pathName": "users/userIndex/userIndex",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "管理员页面",
-					"pathName": "manager/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 3,
-					"name": "预算申请",
-					"pathName": "budget/budgetRequest/budgetRequest",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 4,
-					"name": "charts/bar/index",
-					"pathName": "charts/bar/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "users/requestCart/requestCart",
-					"pathName": "users/requestCart/requestCart",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 6,
-					"name": "manager/assetRecords/assetRecords",
-					"pathName": "manager/assetRecords/assetRecords",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "manager/accessHub/accessHub",
-					"pathName": "manager/accessHub/accessHub",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "deptmanager/assetApprove/assetApprove",
-					"pathName": "deptmanager/assetApprove/assetApprove",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 9,
-					"name": "deptmanager/index/index",
-					"pathName": "deptmanager/index/index",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "useMultiFrameRuntime": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": true
+  },
+  "appid": "wx0596103febd1cc45",
+  "projectname": "Assets-approval",
+  "libVersion": "2.10.2",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "manager/index/index",
+          "pathName": "manager/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "用户首页",
+          "pathName": "users/userIndex/userIndex",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "管理员页面",
+          "pathName": "manager/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "预算申请",
+          "pathName": "budget/budgetRequest/budgetRequest",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "charts/bar/index",
+          "pathName": "charts/bar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "users/requestCart/requestCart",
+          "pathName": "users/requestCart/requestCart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "manager/assetRecords/assetRecords",
+          "pathName": "manager/assetRecords/assetRecords",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "manager/accessHub/accessHub",
+          "pathName": "manager/accessHub/accessHub",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "deptmanager/assetApprove/assetApprove",
+          "pathName": "deptmanager/assetApprove/assetApprove",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "deptmanager/index/index",
+          "pathName": "deptmanager/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

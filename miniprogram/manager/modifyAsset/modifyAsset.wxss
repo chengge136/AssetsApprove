@@ -21,7 +21,25 @@
   justify-content: space-between;
   margin: 20rpx;
 }
+.assetType text{
+  font-size: 14pt;
+}
+.assetPopular{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 20rpx 40rpx 20rpx;
+}
+.assetPopular text{
+  font-size: 14pt;
+}
 .radiogroup{
   padding: 2rpx;
+  
 }
+.popular{
+  width: 300rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
+}

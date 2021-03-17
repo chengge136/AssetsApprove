@@ -17,10 +17,10 @@
 <view class="div">
 
 	<view class="userinfo">
-		<view>申请人：<text>{{requestor}}</text></view>
-		<view>所在部门：<text>{{dept}}</text></view>
-		<view wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
-		<view>备注：<text>{{memo}}</text></view>
+		<view class="item">申请人：<text>{{requestor}} </text></view>
+		<view class="item">所在部门：<text>{{dept}}</text></view>
+		<view class="item" wx:if="{{tag=='办公用品'}}">使用人：<text>{{user}}</text></view>
+		<view class="item" wx:if="{{memo!=''}}">备注：<text>{{memo}}</text></view>
 	</view>
 
 	<van-divider contentPosition="center">物资清单</van-divider>
