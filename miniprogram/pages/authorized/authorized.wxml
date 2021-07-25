@@ -6,6 +6,8 @@
   <view class="desc"><text>管家帮</text></view>
 
   <view class="button">
-    <button type='default' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">开始        <i class="fa fa-arrow-circle-right fa"></i></button>
+    <block wx:if="{{!hasUserInfo}}">
+      <button bindtap="getUserProfile"> 授权登录 </button>
+    </block>  
   </view>
 </view>

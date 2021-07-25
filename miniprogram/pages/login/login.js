@@ -9,6 +9,7 @@ Page({
   data: {
     disabled: false,
     openid: '',
+    nickName:'',
     avatarUrl: '',
     phone: '',
     pwd: ''
@@ -23,7 +24,8 @@ Page({
     console.log('login page of the openid:', userInfo.openid)
     this.setData({
       openid: userInfo.openid,
-      avatarUrl:userInfo.avatarUrl
+      avatarUrl:userInfo.avatarUrl,
+      nickName:userInfo.nickName
     })
   },
   login: function (e) {
